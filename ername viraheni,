@@ -1,0 +1,553 @@
+[33mcommit 515fc945509d80928d2b7666fc4442a759d8a37b[m[33m ([m[1;36mHEAD -> [m[1;32madapterjira[m[33m, [m[1;31morigin/Developer[m[33m, [m[1;32mbugfix#NB34[m[33m, [m[1;32mDeveloper[m[33m)[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Tue Aug 28 15:11:05 2018 +0700
+
+    fixbug #NB:34
+
+[33mcommit cc208bbb7299cddc5df7095f96c9f6342d9d783b[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Mon Aug 27 15:56:38 2018 +0700
+
+    fixbug createuser #NB:11
+
+[33mcommit 631e70dd5b0ba78f29533a04e8f1f8807db18801[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Mon Aug 27 15:53:19 2018 +0700
+
+    CreateUserA #NB:11
+
+[33mcommit 1f1095055a5fa5c5aee97460e86267240ce2f738[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Mon Aug 27 15:52:14 2018 +0700
+
+    CreateUserA
+
+[33mcommit e7e2137272a1781edf540c3194023a1e7d78203b[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 75aebb10 76345b5f
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Wed Aug 15 13:33:48 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new
+
+[33mcommit 75aebb10238e6725558d2d77ac068f1aadfcb407[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Wed Aug 15 13:33:35 2018 +0700
+
+    nama beras ASC
+
+[33mcommit 76345b5fe86940093beeeef141e77e4670f9a781[m[33m ([m[1;31mupstream/branch-dev[m[33m)[m
+Merge: f6383ce6 f1247f36
+Author: Ahmad Sarjono Aljiro <aljiro@helio.id>
+Date:   Wed Aug 15 04:43:59 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    Update Respon Reset Password
+    
+    See merge request telkomdev/bulir-api-new!70
+
+[33mcommit f1247f36c8021e4905afc62a87bf1cd5cb958377[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Wed Aug 15 11:42:57 2018 +0700
+
+    update
+
+[33mcommit b44f4f331253374804653d76c6ddf1b08965cf28[m
+Merge: a15f10f8 f6383ce6
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Wed Aug 15 11:15:59 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new
+
+[33mcommit a15f10f830731dc5c758e05561b0aa3b1bbc4dd8[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Wed Aug 15 11:15:42 2018 +0700
+
+    Update respon reset password
+
+[33mcommit f6383ce60d27d70ddfeffb1b47fd1c39e11d60d7[m
+Merge: 427f7010 5d2c6667
+Author: Ahmad Sarjono Aljiro <aljiro@helio.id>
+Date:   Wed Aug 15 04:10:22 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    Update Respon Get Jual Manual
+    
+    See merge request telkomdev/bulir-api-new!68
+
+[33mcommit 5d2c666785b139d045d4547ea430f0bb875900f7[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Wed Aug 15 11:08:44 2018 +0700
+
+    update respon get Jual Manual
+
+[33mcommit 2e21b1ede139f1443fbe98136c655b321a5668a7[m
+Merge: 7d112c9c 427f7010
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Wed Aug 15 11:06:07 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new
+
+[33mcommit 7d112c9cd033f88428ccb7796215ccf536723e54[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Wed Aug 15 11:05:46 2018 +0700
+
+    update respon get Jual Manual
+
+[33mcommit 427f7010ee71839b5ab976c53b4b28b87da1e361[m
+Merge: 03a5b32e ff88f961
+Author: Agus Rachman <agusrachman@helio.id>
+Date:   Mon Aug 13 04:59:33 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    sort date Laporan & getJenisBeras
+    
+    See merge request telkomdev/bulir-api-new!66
+
+[33mcommit ff88f961877d5bcd7354d9d8e9ceafdcf895bdf5[m
+Merge: b0f4a338 03a5b32e
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Mon Aug 13 11:16:51 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new
+
+[33mcommit b0f4a3380c504738b9cb7486e2864f8f388379a4[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Mon Aug 13 11:16:28 2018 +0700
+
+    getJenisBeras
+
+[33mcommit 03a5b32e4a64dd61d0b5a5bd4dc725f76a3080fa[m
+Merge: 3ac8d388 8bfc2138
+Author: Ahmad Sarjono Aljiro <aljiro@helio.id>
+Date:   Fri Aug 10 12:04:21 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    ubah respon reset password [mobile]
+    
+    See merge request telkomdev/bulir-api-new!64
+
+[33mcommit 8bfc213893b26930f4f422ed027dd6f890dc77b6[m
+Merge: 464282af 3ac8d388
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Fri Aug 10 18:58:00 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new
+
+[33mcommit 464282aff4ed2d97bbf197c2cb9d2d9a6f38e589[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Fri Aug 10 18:57:40 2018 +0700
+
+    ubah respon reset password
+
+[33mcommit 3ac8d388a0a2c3571a92f8cac3735d79ba14cbc4[m
+Merge: 16c7e8a1 f0bee9e3
+Author: Ahmad Sarjono Aljiro <aljiro@helio.id>
+Date:   Fri Aug 10 03:07:24 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    Update Source Code
+    
+    See merge request telkomdev/bulir-api-new!62
+
+[33mcommit f0bee9e3ccaecd96c0c21af0151f75185869facb[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Thu Aug 9 17:32:14 2018 +0700
+
+    update source code location
+
+[33mcommit 860290f7f4d84daa46e2e23eb3ed8664a4016f68[m
+Merge: 24c3798f 16c7e8a1
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Thu Aug 9 17:25:57 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new
+
+[33mcommit 24c3798fd8dfe49c142e0651c468dd47c27b6f76[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Thu Aug 9 17:25:32 2018 +0700
+
+    update source code location
+
+[33mcommit 16c7e8a175e8de0dc75d8a91186d69dac264d3d7[m
+Merge: 16d70df3 23a6535c
+Author: Ahmad Sarjono Aljiro <aljiro@helio.id>
+Date:   Wed Aug 8 09:26:31 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    update jual by manual dan stock by barcode
+    
+    See merge request telkomdev/bulir-api-new!60
+
+[33mcommit 23a6535c2d153be2ab3e157f0c75399eda3d8754[m
+Merge: 80cc639d 16d70df3
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Wed Aug 8 16:05:24 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new
+
+[33mcommit 80cc639dafa677cdd65538577fe5e77f0a893d06[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Wed Aug 8 16:04:56 2018 +0700
+
+    update jual dan stock barcode
+
+[33mcommit 16d70df37de42ced4c667063dfec731df8a996e4[m
+Merge: d8c70642 bee6d172
+Author: Telkom Developer <telkom_dev@helio.id>
+Date:   Wed Aug 8 07:39:17 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    ubah password, insert stock n konsumsi by barcode
+    
+    See merge request telkomdev/bulir-api-new!59
+
+[33mcommit bee6d1726f750df78e4f280f353d6792a39d93db[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Wed Aug 8 14:31:07 2018 +0700
+
+    fix
+
+[33mcommit 07f47329b205b96fc24368d485184fcaf97f4833[m
+Merge: 430e20b5 d8c70642
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Tue Aug 7 18:45:13 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new
+
+[33mcommit 430e20b53f718acd0fed6ed7c937666fc0042995[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Tue Aug 7 18:44:55 2018 +0700
+
+    fix
+
+[33mcommit d8c706422a4c99ad6ce4ff56ce1e2e48c2a656c6[m
+Merge: 7f8e9130 e5de3616
+Author: Ahmad Sarjono Aljiro <aljiro@helio.id>
+Date:   Mon Aug 6 13:46:37 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    Update after Reject NB:36
+    
+    See merge request telkomdev/bulir-api-new!57
+
+[33mcommit e5de36164cea209763134d1e82214becfdcef249[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Mon Aug 6 18:31:41 2018 +0700
+
+    addphone
+
+[33mcommit 5e16a15d948de10ea5c6b2edf22934ee8d9b0f65[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Mon Aug 6 11:20:02 2018 +0700
+
+    fixbug
+
+[33mcommit 7f8e91301904385b5a73eaee09b71971a7a93131[m
+Merge: 41195b6b cad2e2b9
+Author: Telkom Developer <telkom_dev@helio.id>
+Date:   Fri Aug 3 07:49:20 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    conflict fix
+    
+    See merge request telkomdev/bulir-api-new!56
+
+[33mcommit cad2e2b9c9b59264808bd8f991df556ba5417891[m
+Merge: f63cbd14 41195b6b
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Fri Aug 3 14:37:13 2018 +0700
+
+    fix
+
+[33mcommit f63cbd14c2578fbf4f9ef021e7c4878f93141664[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Fri Aug 3 14:27:49 2018 +0700
+
+    fix
+
+[33mcommit 41195b6bd97600fe1c8b2c45890fa33fb8c64b7e[m
+Author: Telkom Developer <telkom_dev@helio.id>
+Date:   Fri Aug 3 07:17:17 2018 +0000
+
+    Revert "Merge branch 'master' into 'branch-dev'"
+    
+    This reverts merge request !55
+
+[33mcommit 18c4428b4952ebe64a7c7c7e32b86a1b603e16d0[m
+Merge: 84fb902f 3941b84f
+Author: Telkom Developer <telkom_dev@helio.id>
+Date:   Fri Aug 3 07:14:53 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    update code Insert Penjualan Manual dan Penambahan Stok
+    
+    See merge request telkomdev/bulir-api-new!55
+
+[33mcommit 3941b84f6c61c2f7246c20a24ca71c0168b60d31[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Fri Aug 3 13:48:43 2018 +0700
+
+    add phone NB:36
+
+[33mcommit a8ab4a05ca3dc2e8bfe9439811d2281840fc7dfc[m
+Merge: d469751c 84fb902f
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Fri Aug 3 13:27:25 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new
+
+[33mcommit d469751c43ae6c863ae97cf6bc9e368f66a07665[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Fri Aug 3 13:26:29 2018 +0700
+
+    bugfix
+
+[33mcommit 4f6de12c1f41ccf1a4c6e23b3441e39b998f955b[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Wed Aug 1 12:25:25 2018 +0700
+
+    bugfix NB-21
+
+[33mcommit 84fb902ff1cc636bf87f017cdf3bf602455c536c[m
+Merge: e4b3bd14 0bc3352c
+Author: Ahmad Sarjono Aljiro <aljiro@helio.id>
+Date:   Mon Jul 30 03:39:14 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    add "name" on InsertStockBarcode
+    
+    See merge request telkomdev/bulir-api-new!53
+
+[33mcommit 0bc3352c5fc6e3deba178ce858a6d428d011e259[m
+Author: Heni Mulyani <heni.mulyani@student.upi>
+Date:   Mon Jul 30 09:25:11 2018 +0700
+
+    add name on penjualanManual
+
+[33mcommit 0d952b2f03ecf6b379a9d906ab08849a4e14de0b[m
+Author: Antonio Pratama Tadjuddin <antoniopratama@helio.id>
+Date:   Wed Jul 25 14:13:30 2018 +0700
+
+    update jenkinsfile
+
+[33mcommit 4868ce0cc3fa105505e18093bbbd2ffd81156f7f[m
+Author: ozi <oziey.skatel@gmail.com>
+Date:   Tue Jul 24 03:47:19 2018 +0000
+
+    open permission to upload file
+
+[33mcommit 71c4138afbf6987f02d26ba03baceb457649aee9[m
+Author: ozi <oziey.skatel@gmail.com>
+Date:   Tue Jul 24 03:42:39 2018 +0000
+
+    open permission to upload file
+
+[33mcommit 49254708e0f86a69f9d02f0611a7cc51eb59c5fe[m
+Author: agus <agusrachman531@gmail.com>
+Date:   Fri Jul 20 15:32:42 2018 +0700
+
+    Fix Upload
+
+[33mcommit d6927380cce64ff05f89bfe258b4cd73a4d75da0[m
+Author: agus <agusrachman531@gmail.com>
+Date:   Fri Jul 20 14:57:35 2018 +0700
+
+    Fix Error
+
+[33mcommit e4b3bd14e196a6c8fd989ba7dc484e5b72db0e4c[m[33m ([m[1;31morigin/branch-dev[m[33m)[m
+Merge: 3f96b98e 28a0cd13
+Author: agus <agusrachman531@gmail.com>
+Date:   Fri Jul 20 07:19:00 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new into branch-dev
+
+[33mcommit 28a0cd134141bd00eb9d4283b76ddd63654eea3c[m
+Merge: ae1434ff 425cc00f
+Author: Telkom Developer <telkom_dev@helio.id>
+Date:   Fri Jul 20 07:17:23 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    fix bug grafik perbandingan konsumsi jenis beras nasional
+    
+    See merge request telkomdev/bulir-api-new!48
+
+[33mcommit ae1434ffc3d2800a62a8e64bff0e08c471d006b6[m
+Merge: 0162f757 4ef77faf
+Author: Telkom Developer <telkom_dev@helio.id>
+Date:   Fri Jul 20 07:15:04 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    Fix
+    
+    See merge request telkomdev/bulir-api-new!49
+
+[33mcommit 0162f757504b0d63f2524492a00e9842218827ad[m
+Merge: 982b931f 465666d6
+Author: Telkom Developer <telkom_dev@helio.id>
+Date:   Fri Jul 20 07:04:15 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    NB 10 get dan post penjualan manual
+    
+    See merge request telkomdev/bulir-api-new!50
+
+[33mcommit 465666d6959ed015d04211312116d1c6deaf01cb[m
+Merge: 273f8aa2 982b931f
+Author: Ridwan <ahmad.ridwan3112@gmail.com>
+Date:   Fri Jul 20 11:31:38 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new
+
+[33mcommit 425cc00f106249bf40abe5957cd480eba7fe94a3[m
+Merge: 33aea6a8 982b931f
+Author: Heni Mulyani <heni.mulyani@student.upi.edu>
+Date:   Fri Jul 20 11:30:32 2018 +0700
+
+    NB:33 fix
+
+[33mcommit 273f8aa24725c738db10229d0ce7861e8a1c74b6[m
+Author: Ridwan <ahmad.ridwan3112@gmail.com>
+Date:   Fri Jul 20 11:29:13 2018 +0700
+
+    get dan post penjualan manual fix lagi dan lagi
+
+[33mcommit 3f96b98e0c49a341c4c7e8a1e9d5f597fb370f17[m
+Merge: 96f5ad19 ae1434ff
+Author: agus <agusrachman531@gmail.com>
+Date:   Fri Jul 20 07:16:51 2018 +0700
+
+    Fix Error #2
+
+[33mcommit 96f5ad19586a9e48996ad368040babfe565d4695[m
+Merge: 55649fab 0162f757
+Author: agus <agusrachman531@gmail.com>
+Date:   Fri Jul 20 07:05:59 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new into branch-dev
+
+[33mcommit 55649fab43e5d298b591ac5ce1934c5ad1a175dd[m
+Author: agus <agusrachman531@gmail.com>
+Date:   Fri Jul 20 07:05:46 2018 +0700
+
+    Fix Error
+
+[33mcommit 4ef77faf2e5c0dbd49540181308bbebc00433e1b[m
+Author: Kevin Warsahid <kevinwarsahid@gmail.com>
+Date:   Thu Jul 19 20:30:54 2018 +0700
+
+    Fix
+
+[33mcommit 33aea6a8930d281dd9cf7040d3eed47385d7398c[m
+Author: Heni Mulyani <heni.mulyani@student.upi.edu>
+Date:   Thu Jul 19 20:06:51 2018 +0700
+
+    fix bug grafik NB:33
+
+[33mcommit 550ae515b716acabf3c96c383ee345df6b0b51eb[m
+Merge: e7a8ac7c 982b931f
+Author: Kevin Warsahid <kevinwarsahid@gmail.com>
+Date:   Thu Jul 19 18:06:50 2018 +0700
+
+    Add
+
+[33mcommit e7a8ac7c66434477dfd4fd2e584a678f8e650468[m
+Merge: d048c2aa 0a00e731
+Author: Kevin Warsahid <kevinwarsahid@gmail.com>
+Date:   Thu Jul 19 18:04:08 2018 +0700
+
+    add more validation
+
+[33mcommit d048c2aacf203fd2e07fc56214b3d79e3589eb55[m
+Author: Kevin Warsahid <kevinwarsahid@gmail.com>
+Date:   Thu Jul 19 16:45:18 2018 +0700
+
+    message
+
+[33mcommit 1c4741ececbaecdad492d10afd0df8af84e3f430[m
+Merge: e49ed2c9 78238358
+Author: Kevin Warsahid <kevinwarsahid@gmail.com>
+Date:   Thu Jul 19 14:53:41 2018 +0700
+
+    Fix
+
+[33mcommit e49ed2c96d85598f4d51021501be67f865e73e81[m
+Author: Kevin Warsahid <kevinwarsahid@gmail.com>
+Date:   Thu Jul 19 14:51:22 2018 +0700
+
+    add
+
+[33mcommit 982b931f890f8ae4c62dd93fd44ce69d2f770ba2[m
+Author: agus <agusrachman531@gmail.com>
+Date:   Thu Jul 19 09:55:19 2018 +0700
+
+    Change Key formSellRetailer
+
+[33mcommit 0a00e731c99ebba27fb5c945da1e1a93ce8759f0[m
+Author: agus <agusrachman531@gmail.com>
+Date:   Thu Jul 19 09:41:51 2018 +0700
+
+    Change Key in Response formSellScanBarcode
+
+[33mcommit 839644115e203df78f82dbc64b59913ac231a57f[m
+Merge: f0ab7ad2 f1a5a80f
+Author: agus <agusrachman531@gmail.com>
+Date:   Thu Jul 19 08:39:24 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new
+
+[33mcommit f1a5a80f66fd06b0f94f49d61875c27c0e746258[m
+Merge: 78238358 f92ea145
+Author: Telkom Developer <telkom_dev@helio.id>
+Date:   Thu Jul 19 08:36:57 2018 +0000
+
+    Merge branch 'master' into 'branch-dev'
+    
+    add pagination response
+    
+    See merge request telkomdev/bulir-api-new!47
+
+[33mcommit f92ea1452b94ab4cfa98e9c5d5ef8470f3fa2b81[m
+Author: dragonremix <dragonremix911@gmail.com>
+Date:   Thu Jul 19 15:34:16 2018 +0700
+
+    add meta pagination & fix error msg
+
+[33mcommit 7ac60f5d797480a37e7f3cdb7c4da2f3ca03f4b8[m
+Merge: 370d8f41 78238358
+Author: dragonremix <dragonremix911@gmail.com>
+Date:   Thu Jul 19 15:07:58 2018 +0700
+
+    Merge branch 'branch-dev' of https://gitlab.com/telkomdev/bulir-api-new
+
+[33mcommit 370d8f412fcf597d4d3e43dca21eef996b24bfc8[m
+Author: dragonremix <dragonremix911@gmail.com>
+Date:   Thu Jul 19 15:02:04 2018 +0700
+
+    add meta response
+
+[33mcommit f0ab7ad2c7368d10ea724e9e637b140009dff0b7[m
+Author: agus <agusrachman531@gmail.com>
+Date:   Thu Jul 19 07:20:17 2018 +0700
+
+    Add api tambah stock
+
+[33mcommit a65b97d438a3913c507d505c5539c192b97b5460[m
+Merge: ed513ad8 78238358
+Author: agus <agusrachman531@gmail.com>
+Date:   Thu Jul 19 07:07:02 2018 +0700
+
+    Fix Error

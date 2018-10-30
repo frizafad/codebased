@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.001" tests="2" failures="1">
+  <testsuite name="Root Suite" timestamp="2018-10-25T01:18:25" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Post Data Penjualan Test" timestamp="2018-10-25T01:18:25" tests="1" file="C:\Users\TelkomDDS\Documents\TELKOM\codeBaseTEFA\test\module\CoreService\repositories\commands\domain_test.js" failures="1" time="0.001">
+    <testcase name="Post Data Penjualan Test Should fail post data penjualan" time="0.001" classname="Should fail post data penjualan">
+      <failure><![CDATA[TypeError: Cannot read property 'id' of null
+    at Context.it (test\module\CoreService\repositories\commands\domain_test.js:41:26)
+    at <anonymous>]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Post Data Penjualan Negative Test" timestamp="2018-10-25T01:18:25" tests="1" file="C:\Users\TelkomDDS\Documents\TELKOM\codeBaseTEFA\test\module\CoreService\repositories\commands\domain_test.js" failures="0" time="0">
+    <testcase name="Post Data Penjualan Negative Test Should fail return product detail" time="0" classname="Should fail return product detail">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,17 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "nakama core api",
+      "image": "864038710441.dkr.ecr.ap-southeast-1.amazonaws.com/nakama-core-api:nakama-core-api-latest",
+      "cpu": 0,
+      "memory": 2048,
+      "portMappings": [
+          {
+              "containerPort": 9000
+          }
+      ],
+      "essential": true,
+      "workingDirectory": "/usr/src/app"
+    }
+  ]
+}

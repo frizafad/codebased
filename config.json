@@ -1,0 +1,7 @@
+{
+    "PORT": 9000,
+    "ENVIRONTMENT": "PRODUCTION",
+    "AUTH_API_BASIC": [{"username": "telkom", "password": "da1c25d8-37c8-41b1-afe2-42dd4825bfea"}],
+    "DSN_SENTRY_URL": "https://96d5b15d655e41cd81f2c15f82b8aec3:196f1781b900470f98bf362274d3f869@sentry.io/279589",
+    "NAKAMA_DATABASE_URL": "mongodb://dpm:t3lkommentoring@ds143953.mlab.com:43953/dashboard-performance?ssl=false"
+}
