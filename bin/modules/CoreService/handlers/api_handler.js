@@ -16,11 +16,6 @@ const getMongo = async (req, res, next) => {
   };
   sendResponse(await getData());
 };
-<<<<<<< HEAD
-const getSquad = async (req, res, next) => {
-  const getData = async () => {
-    return queryHandler.getSquad();
-=======
 
 const getSquadstatus = async (req, res, next) => {
   const getData = async () => {
@@ -53,7 +48,6 @@ const getMemberstatus = async (req, res, next) => {
 const getTalent = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getTalent();
->>>>>>> 537c050074218a13cac215dd601b5bdcfd0487da
   };
   const sendResponse = async (result) => {
     if (result.err !== false) {
@@ -66,11 +60,7 @@ const getTalent = async (req, res, next) => {
 };
 module.exports = {
   getMongo,
-<<<<<<< HEAD
-  getSquad
-=======
   getSquadstatus,
   getMemberstatus,
   getTalent
->>>>>>> 537c050074218a13cac215dd601b5bdcfd0487da
 };
