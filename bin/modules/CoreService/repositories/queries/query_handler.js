@@ -12,6 +12,28 @@ const getMongo = async () => {
   return response;
 };
 
+const getSquadstatus = async () => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getSquadstatus();
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
+
+const getMemberstatus = async (data) => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getMemberstatus(data);
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
+
 module.exports = {
-  getMongo
+  getMongo,
+  getSquadstatus,
+  getMemberstatus
 };

@@ -17,6 +17,35 @@ const getMongo = async (req, res, next) => {
   sendResponse(await getData());
 };
 
+const getSquadstatus = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getSquadstatus();
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
+const getMemberstatus = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getMemberstatus(req.params);
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
 module.exports = {
-  getMongo
+  getMongo,
+  getSquadstatus,
+  getMemberstatus
 };

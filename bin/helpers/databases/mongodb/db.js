@@ -23,17 +23,17 @@ class DB {
     if (result.err) {
       logger.log(ctx, result.err.message, 'Error mongodb connection');
       return result;
-    } else{
+    } else {
       try {
         const connection = result.data.db;
         const db = connection.collection(collectionName);
         const recordset = await db.findOne(parameter);
         if (validate.isEmpty(recordset)) {
           return wrapper.error(`Data Not Found`, `Please Try Another Input`, 404);
-        } else{
+        } else {
           return wrapper.data(recordset);
         }
-      } catch(err) {
+      } catch (err) {
         logger.log(ctx, err.message, 'Error find data in mongodb');
         return wrapper.error(`Error Find One Mongo ${err.message}`, `${err.message}`, 409);
       }
@@ -48,17 +48,17 @@ class DB {
     if (result.err) {
       logger.log(ctx, result.err.message, 'Error mongodb connection');
       return result;
-    } else{
+    } else {
       try {
         const connection = result.data.db;
         const db = connection.collection(collectionName);
         const recordset = await db.find(parameter).toArray();
         if (validate.isEmpty(recordset)) {
           return wrapper.error(`Data Not Found`, `Please Try Another Input`, 404);
-        }else {
+        } else {
           return wrapper.data(recordset);
         }
-      } catch(err) {
+      } catch (err) {
         logger.log(ctx, err.message, 'Error find data in mongodb');
         return wrapper.error(`Error Find Many Mongo ${err.message}`, `${err.message}`, 409);
       }
@@ -73,7 +73,7 @@ class DB {
     if (result.err) {
       logger.log(ctx, result.err.message, 'Error mongodb connection');
       return result;
-    }else {
+    } else {
       try {
         const connection = result.data.db;
         const db = connection.collection(collectionName);
@@ -83,7 +83,7 @@ class DB {
         } else {
           return wrapper.data(document, 'created', 201);
         }
-      }catch (err) {
+      } catch (err) {
         logger.log(ctx, err.message, 'Error insert data in mongodb');
         return wrapper.error(`Error Insert One Mongo ${err.message}`, `${err.message}`, 409);
       }
@@ -99,7 +99,7 @@ class DB {
     if (result.err) {
       logger.log(ctx, result.err.message, 'Error mongodb connection');
       return result;
-    }else {
+    } else {
       try {
         const connection = result.data.db;
         const db = connection.collection(collectionName);
@@ -109,7 +109,7 @@ class DB {
         } else {
           return wrapper.data(document, 'created', 201);
         }
-      }catch (err) {
+      } catch (err) {
         logger.log(ctx, err.message, 'Error insert data in mongodb');
         return wrapper.error(`Error Insert Many Mongo ${err.message}`, `${err.message}`, 409);
       }
@@ -124,7 +124,7 @@ class DB {
     if (result.err) {
       logger.log(ctx, result.err.message, 'Error mongodb connection');
       return result;
-    } else{
+    } else {
       try {
         const connection = result.data.db;
         const db = connection.collection(collectionName);
@@ -134,18 +134,18 @@ class DB {
           const recordset = await this.findOne(parameter);
           if (nModified === 0) {
             return wrapper.data(recordset.data, 'created', 201);
-          }else {
+          } else {
             return wrapper.data(recordset.data, 'updated', 204);
           }
         }
-      } catch(err) {
+      } catch (err) {
         logger.log(ctx, err.message, 'Error upsert data in mongodb');
         return wrapper.error(`Error Upsert Mongo ${err.message}`, `${err.message}`, 409);
       }
     }
   }
 
-  async findAllData (fieldName,row, page, param) {
+  async findAllData (fieldName, row, page, param) {
     let ctx = 'mongodb-findAllData';
     const config = this.config;
     const collectionName = this.collectionName;
@@ -153,7 +153,7 @@ class DB {
     if (result.err) {
       logger.log(ctx, result.err.message, 'Error mongodb connection');
       return result;
-    } else{
+    } else {
       try {
         const connection = result.data.db;
         const db = connection.collection(collectionName);
@@ -163,10 +163,10 @@ class DB {
         const recordset = await db.find(param).sort(parameterSort).limit(row).skip(parameterPage).toArray();
         if (validate.isEmpty(recordset)) {
           return wrapper.error(`Data Not Found`, `Please Try Another Input`, 404);
-        }else {
+        } else {
           return wrapper.data(recordset);
         }
-      }catch (err) {
+      } catch (err) {
         logger.log(ctx, err.message, 'Error upsert data in mongodb');
         return wrapper.error(`Error Mongo`, `${err.message}`, 409);
       }
@@ -181,17 +181,17 @@ class DB {
     if (result.err) {
       logger.log(ctx, result.err.message, 'Error mongodb connection');
       return result;
-    }else {
+    } else {
       try {
         const connection = result.data.db;
         const db = connection.collection(collectionName);
         const recordset = await db.count(param);
         if (validate.isEmpty(recordset)) {
           return wrapper.error(`Data Not Found`, `Please Try Another Input`, 404);
-        }else {
+        } else {
           return wrapper.data(recordset);
         }
-      } catch(err) {
+      } catch (err) {
         logger.log(ctx, err.message, 'Error count data in mongodb');
         return wrapper.error(`Error Mongo`, `${err.message}`, 409);
       }

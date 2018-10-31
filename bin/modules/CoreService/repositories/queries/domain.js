@@ -20,5 +20,23 @@ class CoreService {
       return wrapper.data(arrData, '', 200);
     }
   }
+
+  async getSquadstatus () {
+    let result = await queries.getSquadstatus();
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      return wrapper.data(result, '', 200);
+    }
+  }
+
+  async getMemberstatus (data) {
+    let result = await queries.getMemberstatus(data);
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      return wrapper.data(result, '', 200);
+    }
+  }
 }
 module.exports = CoreService;
