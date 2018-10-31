@@ -32,8 +32,19 @@ const getMemberstatus = async (data) => {
   return response;
 };
 
+const getTalent = async () => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getTalent();
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
+
 module.exports = {
   getMongo,
   getSquadstatus,
-  getMemberstatus
+  getMemberstatus,
+  getTalent
 };

@@ -42,8 +42,10 @@ let AppServer = function () {
   });
 
   this.server.get('/api/mongo', basicAuth.isAuthenticated, dashboardPerformance.getMongo);
-  // Get
+  // Get untuk Pie
   this.server.get('/api/squad/status/get', basicAuth.isAuthenticated, dashboardPerformance.getSquadstatus);
   this.server.get('/api/member/status/get/:squadid', basicAuth.isAuthenticated, dashboardPerformance.getMemberstatus);
+  // Get untuk Talent
+  this.server.get('/api/talent/get', basicAuth.isAuthenticated, dashboardPerformance.getTalent);
 };
 module.exports = AppServer;

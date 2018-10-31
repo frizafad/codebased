@@ -38,5 +38,14 @@ class CoreService {
       return wrapper.data(result, '', 200);
     }
   }
+
+  async getTalent () {
+    let result = await queries.getTalent();
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      return wrapper.data(result, '', 200);
+    }
+  }
 }
 module.exports = CoreService;

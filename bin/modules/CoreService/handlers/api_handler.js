@@ -44,8 +44,23 @@ const getMemberstatus = async (req, res, next) => {
   };
   sendResponse(await getData());
 };
+
+const getTalent = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getTalent();
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
 module.exports = {
   getMongo,
   getSquadstatus,
-  getMemberstatus
+  getMemberstatus,
+  getTalent
 };
