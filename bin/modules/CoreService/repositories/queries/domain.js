@@ -20,5 +20,21 @@ class CoreService {
       return wrapper.data(arrData, '', 200);
     }
   }
+  async getSquad () {
+    let arrData = [];
+    let result = await queries.getSquad();
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      let data = result.data;
+      data.map(async (item) => {
+        let modelDb = await model.modelA();
+        modelDb.squadid = item.squadid;
+        modelDb.backlogId = item.backlogId;
+        arrData.push(modelDb);
+      });
+      return wrapper.data(arrData, '', 200);
+    }
+  }
 }
 module.exports = CoreService;

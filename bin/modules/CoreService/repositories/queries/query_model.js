@@ -2,7 +2,8 @@
 
 const modelA = () => {
   const model = {
-    backlogType: ''
+    squadid: '',
+    backlogId: ''
   };
   return model;
 };

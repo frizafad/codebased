@@ -9,7 +9,14 @@ const getMongo = async () => {
   const recordset = await db.findMany();
   return recordset;
 };
+const getSquad = async () => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('squads');
+  const recordset = await db.findMany();
+  return recordset;
+};
 
 module.exports = {
-  getMongo
+  getMongo,
+  getSquad
 };

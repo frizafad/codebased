@@ -42,5 +42,7 @@ let AppServer = function () {
   });
 
   this.server.get('/api/mongo', basicAuth.isAuthenticated, dashboardPerformance.getMongo);
+  //Squad Chart
+  this.server.get('/api/squad/get', basicAuth.isAuthenticated, dashboardPerformance.getSquad);
 };
 module.exports = AppServer;

@@ -54,6 +54,7 @@
     "node-base64-image": "^1.0.5",
     "node-cron": "1.2.1",
     "node-datetime": "2.0.3",
+    "node-gyp": "^3.8.0",
     "node-strings": "^1.0.2",
     "node-unique-array": "0.0.6",
     "nodemon": "^1.18.1",
