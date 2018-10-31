@@ -42,7 +42,15 @@ let AppServer = function () {
   });
 
   this.server.get('/api/mongo', basicAuth.isAuthenticated, dashboardPerformance.getMongo);
+<<<<<<< HEAD
   //Squad Chart
   this.server.get('/api/squad/get', basicAuth.isAuthenticated, dashboardPerformance.getSquad);
+=======
+  // Get untuk Pie
+  this.server.get('/api/squad/status/get', basicAuth.isAuthenticated, dashboardPerformance.getSquadstatus);
+  this.server.get('/api/member/status/get/:squadid', basicAuth.isAuthenticated, dashboardPerformance.getMemberstatus);
+  // Get untuk Talent
+  this.server.get('/api/talent/get', basicAuth.isAuthenticated, dashboardPerformance.getTalent);
+>>>>>>> 537c050074218a13cac215dd601b5bdcfd0487da
 };
 module.exports = AppServer;

@@ -8,6 +8,15 @@ const modelA = () => {
   return model;
 };
 
+const modelSquad = () => {
+  const model = {
+    squadid: '',
+    backlogId: ''
+  };
+  return model;
+};
+
 module.exports = {
-  modelA
+  modelA,
+  modelSquad
 };

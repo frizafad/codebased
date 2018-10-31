@@ -20,6 +20,7 @@ class CoreService {
       return wrapper.data(arrData, '', 200);
     }
   }
+<<<<<<< HEAD
   async getSquad () {
     let arrData = [];
     let result = await queries.getSquad();
@@ -34,6 +35,33 @@ class CoreService {
         arrData.push(modelDb);
       });
       return wrapper.data(arrData, '', 200);
+=======
+
+  async getSquadstatus () {
+    let result = await queries.getSquadstatus();
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      return wrapper.data(result, '', 200);
+    }
+  }
+
+  async getMemberstatus (data) {
+    let result = await queries.getMemberstatus(data);
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      return wrapper.data(result, '', 200);
+    }
+  }
+
+  async getTalent () {
+    let result = await queries.getTalent();
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      return wrapper.data(result, '', 200);
+>>>>>>> 537c050074218a13cac215dd601b5bdcfd0487da
     }
   }
 }
