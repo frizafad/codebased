@@ -42,8 +42,12 @@ let AppServer = function () {
   });
 
   this.server.get('/api/mongo', basicAuth.isAuthenticated, dashboardPerformance.getMongo);
+<<<<<<< HEAD
   this.server.get('/product/getAll/:page', basicAuth.isAuthenticated, dashboardPerformance.getProductAll);
   this.server.get('/product/getAll/:name/:page', basicAuth.isAuthenticated, dashboardPerformance.getProductAllbyName);
+=======
+  this.server.post('/api/calendar/post', basicAuth.isAuthenticated, dashboardPerformance.postCalendar);
+>>>>>>> 2de4373f15cca300c73b91eb43f8690a59519099
   this.server.get('/personal/calender/:startTime', basicAuth.isAuthenticated, dashboardPerformance.getCalenderbydate);
 };
 module.exports = AppServer;
