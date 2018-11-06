@@ -1,12 +1,4 @@
 'use strict';
-
-const modelA = () => {
-  const model = {
-    backlogType: ''
-  };
-  return model;
-};
-
 const modelCalendar = () => {
   const model = {
     id: '',
@@ -24,6 +16,5 @@ const modelCalendar = () => {
 };
 
 module.exports = {
-  modelA,
   modelCalendar
 };
