@@ -22,7 +22,7 @@ const getCalenderbydate = async (req, res, next) => {
     return queryHandler.getCalenderbydate(req.params.startTime);
   };
   const sendResponse = async (result) => {
-    if (result.err != false) {
+    if (result.err !== false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
