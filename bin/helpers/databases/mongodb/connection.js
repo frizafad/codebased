@@ -39,7 +39,7 @@ const createConnection = async (config) => {
   try {
     const connection = await Mongo.connect(config, options);
     return wrapper.data(connection);
-  } catch (err)  {
+  } catch (err) {
     console.log(err);
     return wrapper.error(err, err.message, 503);
   }
@@ -97,5 +97,5 @@ const getConnection = async (config) => {
 module.exports = {
   init: init,
   getConnection: getConnection,
-  createConnection,
+  createConnection
 };
