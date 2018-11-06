@@ -42,5 +42,7 @@ let AppServer = function () {
   });
 
   this.server.get('/api/mongo', basicAuth.isAuthenticated, dashboardPerformance.getMongo);
+  this.server.get('/api/product', basicAuth.isAuthenticated, dashboardPerformance.getProduct);
+  this.server.get('/api/notification', basicAuth.isAuthenticated, dashboardPerformance.getNotification);
 };
 module.exports = AppServer;
