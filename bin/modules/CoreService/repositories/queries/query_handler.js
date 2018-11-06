@@ -12,6 +12,7 @@ const getMongo = async () => {
   return response;
 };
 
+<<<<<<< HEAD
 const getProductAll = async (data) => {
   const getData = async () => {
     const dataRetailer = new CoreService();
@@ -26,6 +27,12 @@ const getProductAllbyName = async (data) => {
   const getData = async () => {
     const dataRetailer = new CoreService();
     const result = await dataRetailer.getProductAllbyName(data.name, data.page);
+=======
+const getCalenderbydate = async (data) => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getCalenderbydate(data);
+>>>>>>> 5bb3b39e4073186a59f9467209b9fd08a6722a00
     return result;
   };
   const response = await getData();
@@ -34,6 +41,10 @@ const getProductAllbyName = async (data) => {
 
 module.exports = {
   getMongo,
+<<<<<<< HEAD
   getProductAll,
   getProductAllbyName
+=======
+  getCalenderbydate
+>>>>>>> 5bb3b39e4073186a59f9467209b9fd08a6722a00
 };

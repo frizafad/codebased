@@ -10,6 +10,7 @@ const getMongo = async () => {
   return recordset;
 };
 
+<<<<<<< HEAD
 const getProductAll = async (data) => {
   const db = new Mongo(config.getDatabaseUrl());
   db.setCollection('products');
@@ -21,11 +22,21 @@ const getProductAllbyName = async (data) => {
   const db = new Mongo(config.getDatabaseUrl());
   db.setCollection('products');
   const recordset = await db.innerJoin(data);
+=======
+const getCalenderbydate = async () => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('calendar');
+  const recordset = await db.findMany();
+>>>>>>> 5bb3b39e4073186a59f9467209b9fd08a6722a00
   return recordset;
 };
 
 module.exports = {
   getMongo,
+<<<<<<< HEAD
   getProductAll,
   getProductAllbyName
+=======
+  getCalenderbydate
+>>>>>>> 5bb3b39e4073186a59f9467209b9fd08a6722a00
 };
