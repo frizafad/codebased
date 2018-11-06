@@ -10,7 +10,7 @@ const modelCalendar = () => {
     createdAt: '',
     createdBy: '',
     modifiedAt: '',
-    modifiedBy: '',
+    modifiedBy: ''
   };
   return model;
 };

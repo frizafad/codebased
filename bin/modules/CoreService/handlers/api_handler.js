@@ -37,7 +37,7 @@ const postCalendar = async (req, res, next) => {
     return CommandHandler.postCalendar(data);
   };
   const sendResponse = async (result) => {
-    if (result.err != false) {
+    if (result.err !== false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
