@@ -42,5 +42,7 @@ let AppServer = function () {
   });
 
   this.server.get('/api/mongo', basicAuth.isAuthenticated, dashboardPerformance.getMongo);
+  this.server.get('/product/getAll/:page', basicAuth.isAuthenticated, dashboardPerformance.getProductAll);
+  this.server.get('/product/getAll/:name/:page', basicAuth.isAuthenticated, dashboardPerformance.getProductAllbyName);
 };
 module.exports = AppServer;
