@@ -3,6 +3,7 @@
 const wrapper = require('../../../helpers/utils/wrapper');
 const queryHandler = require('../repositories/queries/query_handler');
 const CommandHandler = require('../repositories/commands/command_handler');
+const moment = require('moment');
 
 const getMongo = async (req, res, next) => {
   const getData = async () => {
@@ -20,6 +21,8 @@ const getMongo = async (req, res, next) => {
 
 const postCalendar = async (req, res, next) => {
   const postData = async () => {
+    var now = moment();
+    var format = await now.format();
     let data = [];
     data.id = req.body.id;
     data.judul = req.body.judul;
@@ -27,9 +30,9 @@ const postCalendar = async (req, res, next) => {
     data.location = req.body.location;
     data.startTime = req.body.startTime;
     data.finishTime = req.body.finishTime;
-    data.createdAt = req.body.createdAt;
+    data.createdAt = format;
     data.createdBy = req.body.createdBy;
-    data.modifiedAt = req.body.modifiedAt;
+    data.modifiedAt = format;
     data.modifiedBy = req.body.modifiedBy;
     return CommandHandler.postCalendar(data);
   };
