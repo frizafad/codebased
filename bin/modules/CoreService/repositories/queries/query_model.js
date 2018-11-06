@@ -6,7 +6,20 @@ const modelA = () => {
   };
   return model;
 };
-
+const modelCalendar = () => {
+  const model = {
+    id: '',
+    description: '',
+    location: '',
+    dateTime: '',
+    createdAt: '',
+    createdBy: '',
+    modifiedAt: '',
+    modifiedBy: ''
+  };
+  return model;
+};
 module.exports = {
-  modelA
+  modelA,
+  modelCalendar
 };
