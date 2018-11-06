@@ -7,6 +7,17 @@ const modelA = () => {
   return model;
 };
 
+const modelProductAll = () => {
+  const model = {
+    nameProduct: '',
+    startProject: '',
+    unit: '',
+    ver: ''
+  };
+  return model;
+};
+
 module.exports = {
-  modelA
+  modelA,
+  modelProductAll
 };

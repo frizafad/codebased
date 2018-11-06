@@ -10,6 +10,22 @@ const getMongo = async () => {
   return recordset;
 };
 
+const getProductAll = async (data) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('products');
+  const recordset = await db.innerJoin(data);
+  return recordset;
+};
+
+const getProductAllbyName = async (data) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('products');
+  const recordset = await db.innerJoin(data);
+  return recordset;
+};
+
 module.exports = {
-  getMongo
+  getMongo,
+  getProductAll,
+  getProductAllbyName
 };
