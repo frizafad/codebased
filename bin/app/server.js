@@ -42,5 +42,6 @@ let AppServer = function () {
   });
 
   this.server.get('/api/mongo', basicAuth.isAuthenticated, dashboardPerformance.getMongo);
+  this.server.get('/personal/calender/:startTime', basicAuth.isAuthenticated, dashboardPerformance.getCalenderbydate);
 };
 module.exports = AppServer;
