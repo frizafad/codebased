@@ -20,5 +20,43 @@ class CoreService {
       return wrapper.data(arrData, '', 200);
     }
   }
+
+  async getCalenderbydate (time) {
+    let arrData = [];
+
+    let result = await queries.getCalenderbydate();
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      let data = result.data;
+      data.map(async (item) => {
+        
+        let modelCal = await model.modelCalendar();
+        let query = item.startTime.split('T',1);
+        if(query == time){
+          let startTime = new Date(item.startTime);
+          let finishTime = new Date(item.finishTime);
+          let createdAt = new Date(item.createdAt);
+          let modifiedAt = new Date(item.modifiedAt);
+          modelCal.id = item.id;
+          modelCal.judul = item.judul;
+          modelCal.description = item.description;
+          modelCal.location = item.location;
+          modelCal.startTime = startTime.toLocaleString();
+          modelCal.finishTime = finishTime.toLocaleString();
+          modelCal.createdAt = createdAt.toLocaleString();
+          modelCal.createdBy = item.createdBy;
+          modelCal.modifiedAt = modifiedAt.toLocaleString();
+          modelCal.modifiedBy = item.modifiedBy;
+          arrData.push(modelCal);
+        }
+        
+      });
+      return wrapper.data(arrData, '', 200);
+    }
+  }
+  
 }
+
+
 module.exports = CoreService;
