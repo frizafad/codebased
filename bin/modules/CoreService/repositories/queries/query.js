@@ -118,11 +118,19 @@ const getTalent = async () => {
   return Arrdata;
 };
 
+const getCalenderbydate = async () => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('calendar');
+  const recordset = await db.findMany();
+  return recordset;
+};
+
 module.exports = {
   getMongo,
   getSquadstatus,
   getMemberstatus,
   getTalent,
   getValid,
-  getOneValid
+  getOneValid,
+  getCalenderbydate
 };

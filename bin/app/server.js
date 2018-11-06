@@ -50,5 +50,6 @@ let AppServer = function () {
   //Validator Place
   this.server.get('/api/validator/get',basicAuth.isAuthenticated, dashboardPerformance.getValid);
   this.server.get('/api/validator/get/:nama_project',basicAuth.isAuthenticated, dashboardPerformance.getOneValid);
+  this.server.get('/personal/calender/:startTime', basicAuth.isAuthenticated, dashboardPerformance.getCalenderbydate);
 };
 module.exports = AppServer;

@@ -77,7 +77,20 @@ const getOneValid = async (req, res, next) => {
     return queryHandler.getOneValid(req.params);
   };
   const sendResponse = async (result) => {
-    if (result.err !== false) {
+    if (result.err != false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+const getCalenderbydate = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getCalenderbydate(req.params.startTime);
+  };
+  const sendResponse = async (result) => {
+    if (result.err != false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
@@ -92,5 +105,6 @@ module.exports = {
   getMemberstatus,
   getTalent,
   getValid,
-  getOneValid
+  getOneValid,
+  getCalenderbydate
 };
