@@ -7,14 +7,16 @@ const modelA = () => {
   return model;
 };
 
-<<<<<<< HEAD
 const modelProductAll = () => {
   const model = {
     nameProduct: '',
     startProject: '',
     unit: '',
     ver: ''
-=======
+  };
+  return model;
+};
+
 const modelCalendar = () => {
   const model = {
     id: '',
@@ -26,17 +28,13 @@ const modelCalendar = () => {
     createdAt: '',
     createdBy: '',
     modifiedAt: '',
-    modifiedBy: '',
->>>>>>> 5bb3b39e4073186a59f9467209b9fd08a6722a00
+    modifiedBy: ''
   };
   return model;
 };
 
 module.exports = {
   modelA,
-<<<<<<< HEAD
-  modelProductAll
-=======
+  modelProductAll,
   modelCalendar
->>>>>>> 5bb3b39e4073186a59f9467209b9fd08a6722a00
 };

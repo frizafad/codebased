@@ -17,7 +17,6 @@ const getMongo = async (req, res, next) => {
   sendResponse(await getData());
 };
 
-<<<<<<< HEAD
 const getProductAll = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getProductAll(req.params);
@@ -38,14 +37,20 @@ const getProductAllbyName = async (req, res, next) => {
   };
   const sendResponse = async (result) => {
     if (result.err !== false) {
-=======
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
 const getCalenderbydate = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getCalenderbydate(req.params.startTime);
   };
   const sendResponse = async (result) => {
-    if (result.err != false) {
->>>>>>> 5bb3b39e4073186a59f9467209b9fd08a6722a00
+    if (result.err !== false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
@@ -56,10 +61,7 @@ const getCalenderbydate = async (req, res, next) => {
 
 module.exports = {
   getMongo,
-<<<<<<< HEAD
   getProductAll,
-  getProductAllbyName
-=======
+  getProductAllbyName,
   getCalenderbydate
->>>>>>> 5bb3b39e4073186a59f9467209b9fd08a6722a00
 };

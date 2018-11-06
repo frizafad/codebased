@@ -96,5 +96,6 @@ const getConnection = async (config) => {
 
 module.exports = {
   init: init,
-  getConnection: getConnection
+  getConnection: getConnection,
+  createConnection,
 };
