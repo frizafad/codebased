@@ -9,13 +9,18 @@ const getMongo = async () => {
   const recordset = await db.findMany();
   return recordset;
 };
-const getSquad = async () => {
+const getValid = async () => {
   const db = new Mongo(config.getDatabaseUrl());
-  db.setCollection('squads');
+  db.setCollection('validator');
   const recordset = await db.findMany();
   return recordset;
 };
-
+const getOneValid = async (param) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('validator');
+  const recordset = await db.findOne(param);
+  return recordset;
+};
 const getSquadstatus = async () => {
   const db = new Mongo(config.getDatabaseUrl());
   let sudah_dikerjakan = 0;
@@ -117,5 +122,7 @@ module.exports = {
   getMongo,
   getSquadstatus,
   getMemberstatus,
-  getTalent
+  getTalent,
+  getValid,
+  getOneValid
 };

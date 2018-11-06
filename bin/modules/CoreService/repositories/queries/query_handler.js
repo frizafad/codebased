@@ -41,10 +41,29 @@ const getTalent = async () => {
   const response = await getData();
   return response;
 };
-
+const getValid = async (data) => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getValid(data);
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
+const getOneValid = async (data) => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getOneValid(data);
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
 module.exports = {
   getMongo,
   getSquadstatus,
   getMemberstatus,
-  getTalent
+  getTalent,
+  getValid,
+  getOneValid
 };

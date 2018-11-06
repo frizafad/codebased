@@ -47,5 +47,8 @@ let AppServer = function () {
   this.server.get('/api/member/status/get/:squadid', basicAuth.isAuthenticated, dashboardPerformance.getMemberstatus);
   // Get untuk Talent
   this.server.get('/api/talent/get', basicAuth.isAuthenticated, dashboardPerformance.getTalent);
+  //Validator Place
+  this.server.get('/api/validator/get',basicAuth.isAuthenticated, dashboardPerformance.getValid);
+  this.server.get('/api/validator/get/:nama_project',basicAuth.isAuthenticated, dashboardPerformance.getOneValid);
 };
 module.exports = AppServer;

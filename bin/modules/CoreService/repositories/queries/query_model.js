@@ -2,8 +2,9 @@
 
 const modelA = () => {
   const model = {
-    squadid: '',
-    backlogId: ''
+    nama_project: '',
+    datetime: '',
+    po: ''
   };
   return model;
 };
