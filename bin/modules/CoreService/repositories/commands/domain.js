@@ -6,10 +6,8 @@ const command = require('./command');
 
 class CoreService {  
    async postCalendar (data) {
-  let ctx = 'domain-postCalendar';
   let result = await command.postCalendar(data);
   if (result.err) {
-    console.log(ctx, result.err.message, 'Cannot post Calendar');
     return wrapper.error('fail', 'Data not found', 409);
   } else {
     let data = result.data;

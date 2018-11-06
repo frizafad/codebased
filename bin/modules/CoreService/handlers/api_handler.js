@@ -37,7 +37,7 @@ const postCalendar = async (req, res, next) => {
     return CommandHandler.postCalendar(data);
   };
   const sendResponse = async (result) => {
-    if (result.err !== false) {
+    if (result.err != false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
@@ -46,7 +46,22 @@ const postCalendar = async (req, res, next) => {
   sendResponse(await postData());
 };
 
+const getCalenderbydate = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getCalenderbydate(req.params.startTime);
+  };
+  const sendResponse = async (result) => {
+    if (result.err != false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
 module.exports = {
   getMongo,
-  postCalendar
+  postCalendar,
+  getCalenderbydate
 };

@@ -12,6 +12,17 @@ const getMongo = async () => {
   return response;
 };
 
+const getCalenderbydate = async (data) => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getCalenderbydate(data);
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
+
 module.exports = {
-  getMongo
+  getMongo,
+  getCalenderbydate
 };

@@ -1,25 +1,20 @@
 'use strict';
-
-const modelA = () => {
-  const model = {
-    backlogType: ''
-  };
-  return model;
-};
 const modelCalendar = () => {
   const model = {
     id: '',
+    judul: '',
     description: '',
     location: '',
-    dateTime: '',
+    startTime: '',
+    finishTime: '',
     createdAt: '',
     createdBy: '',
     modifiedAt: '',
-    modifiedBy: ''
+    modifiedBy: '',
   };
   return model;
 };
+
 module.exports = {
-  modelA,
   modelCalendar
 };
