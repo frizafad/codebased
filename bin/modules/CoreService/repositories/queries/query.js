@@ -10,6 +10,14 @@ const getMongo = async () => {
   return recordset;
 };
 
+const getCalenderbydate = async () => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('calendar');
+  const recordset = await db.findMany();
+  return recordset;
+};
+
 module.exports = {
-  getMongo
+  getMongo,
+  getCalenderbydate
 };
