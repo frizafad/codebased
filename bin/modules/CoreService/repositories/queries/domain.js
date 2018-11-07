@@ -117,7 +117,6 @@ class CoreService {
 
   async getCalenderbydate (time) {
     let arrData = [];
-
     let result = await queries.getCalenderbydate();
     if (result.err) {
       return wrapper.error('fail', 'Data not found', 409);
