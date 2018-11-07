@@ -10,6 +10,14 @@ const getMongo = async () => {
   return recordset;
 };
 
+const getQueue = async () => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('products');
+  const recordset = await db.findMany();
+  return recordset;
+};
+
 module.exports = {
-  getMongo
+  getMongo,
+  getQueue
 };

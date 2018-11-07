@@ -7,6 +7,15 @@ const modelA = () => {
   return model;
 };
 
+const modelB = () => {
+  const model = {
+    name : '',
+    version : ''
+  };
+  return model;
+};
+
 module.exports = {
-  modelA
+  modelA,
+  modelB
 };

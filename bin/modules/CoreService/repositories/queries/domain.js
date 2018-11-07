@@ -20,5 +20,22 @@ class CoreService {
       return wrapper.data(arrData, '', 200);
     }
   }
+
+  async getQueue () {
+    let arrData = [];
+    let result = await queries.getQueue();
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      let data = result.data;
+      data.map(async (item) => {
+        let modelDb = await model.modelB();
+        modelDb.name = item.name,
+        modelDb.version = item.version
+        arrData.push(modelDb);
+      });
+      return wrapper.data(arrData, '', 200);
+    }
+  }
 }
 module.exports = CoreService;
