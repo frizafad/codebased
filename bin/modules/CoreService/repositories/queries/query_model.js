@@ -13,7 +13,7 @@ const modelgetProduct = () => {
     productName: '',
     sprint: '',
     squad: '',
-    member: 
+    member:
     [
       {
         talentId: '',
@@ -42,7 +42,7 @@ const modelgetNotification = () => {
     ],
     description: '',
     squad: '',
-    backlog: '',
+    backlog: ''
   };
   return model;
 };
