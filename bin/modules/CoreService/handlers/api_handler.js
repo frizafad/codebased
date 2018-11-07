@@ -19,14 +19,20 @@ const getMongo = async (req, res, next) => {
   sendResponse(await getData());
 };
 
-<<<<<<< HEAD
 const getProductAll = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getProductAll(req.params);
   };
   const sendResponse = async (result) => {
     if (result.err !== false) {
-=======
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
 const postCalendar = async (req, res, next) => {
   const postData = async () => {
     var now = moment();
@@ -45,15 +51,13 @@ const postCalendar = async (req, res, next) => {
     return CommandHandler.postCalendar(data);
   };
   const sendResponse = async (result) => {
-    if (result.err != false) {
->>>>>>> 2de4373f15cca300c73b91eb43f8690a59519099
+    if (result.err !== false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
     }
   };
-<<<<<<< HEAD
-  sendResponse(await getData());
+  sendResponse(await postData());
 };
 
 const getProductAllbyName = async (req, res, next) => {
@@ -62,8 +66,12 @@ const getProductAllbyName = async (req, res, next) => {
   };
   const sendResponse = async (result) => {
     if (result.err !== false) {
-=======
-  sendResponse(await postData());
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
 };
 
 const getCalenderbydate = async (req, res, next) => {
@@ -71,8 +79,7 @@ const getCalenderbydate = async (req, res, next) => {
     return queryHandler.getCalenderbydate(req.params.startTime);
   };
   const sendResponse = async (result) => {
-    if (result.err != false) {
->>>>>>> 2de4373f15cca300c73b91eb43f8690a59519099
+    if (result.err !== false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
@@ -83,11 +90,8 @@ const getCalenderbydate = async (req, res, next) => {
 
 module.exports = {
   getMongo,
-<<<<<<< HEAD
   getProductAll,
-  getProductAllbyName
-=======
+  getProductAllbyName,
   postCalendar,
   getCalenderbydate
->>>>>>> 2de4373f15cca300c73b91eb43f8690a59519099
 };

@@ -117,17 +117,15 @@ class CoreService {
 
   async getCalenderbydate (time) {
     let arrData = [];
-
     let result = await queries.getCalenderbydate();
     if (result.err) {
       return wrapper.error('fail', 'Data not found', 409);
     } else {
       let data = result.data;
       data.map(async (item) => {
-        
         let modelCal = await model.modelCalendar();
-        let query = item.startTime.split('T',1);
-        if(query == time){
+        let query = item.startTime.split('T', 1);
+        if (query === time) {
           let startTime = new Date(item.startTime);
           let finishTime = new Date(item.finishTime);
           let createdAt = new Date(item.createdAt);
@@ -144,13 +142,10 @@ class CoreService {
           modelCal.modifiedBy = item.modifiedBy;
           arrData.push(modelCal);
         }
-        
       });
       return wrapper.data(arrData, '', 200);
     }
   }
-  
 }
-
 
 module.exports = CoreService;
