@@ -1,5 +1,4 @@
 'use strict';
-<<<<<<< HEAD
 
 const modelA = () => {
   const model = {
@@ -18,8 +17,6 @@ const modelProductAll = () => {
   return model;
 };
 
-=======
->>>>>>> 2de4373f15cca300c73b91eb43f8690a59519099
 const modelCalendar = () => {
   const model = {
     id: '',
@@ -37,10 +34,7 @@ const modelCalendar = () => {
 };
 
 module.exports = {
-<<<<<<< HEAD
   modelA,
   modelProductAll,
-=======
->>>>>>> 2de4373f15cca300c73b91eb43f8690a59519099
   modelCalendar
 };
