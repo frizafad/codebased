@@ -103,6 +103,13 @@ const postCalendar = async (req, res, next) => {
     data.modifiedAt = format;
     data.modifiedBy = req.body.modifiedBy;
     return CommandHandler.postCalendar(data);
+  };
+  const sendResponse = async (result) => {
+    if (result.err != false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
   }
   sendResponse(await postData());
 };
