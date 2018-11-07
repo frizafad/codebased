@@ -42,7 +42,18 @@ let AppServer = function () {
   });
 
   this.server.get('/api/mongo', basicAuth.isAuthenticated, dashboardPerformance.getMongo);
+  // Get untuk Pie
+  this.server.get('/api/squad/status/get', basicAuth.isAuthenticated, dashboardPerformance.getSquadstatus);
+  this.server.get('/api/member/status/get/:squadid', basicAuth.isAuthenticated, dashboardPerformance.getMemberstatus);
+  // Get untuk Talent
+  this.server.get('/api/talent/get', basicAuth.isAuthenticated, dashboardPerformance.getTalent);
+  //Validator Place
+  this.server.get('/api/validator/get',basicAuth.isAuthenticated, dashboardPerformance.getValid);
+  this.server.get('/api/validator/get/:nama_project',basicAuth.isAuthenticated, dashboardPerformance.getOneValid);
   this.server.post('/api/calendar/post', basicAuth.isAuthenticated, dashboardPerformance.postCalendar);
   this.server.get('/personal/calender/:startTime', basicAuth.isAuthenticated, dashboardPerformance.getCalenderbydate);
+  this.server.get('/personal/detail/:id', basicAuth.isAuthenticated, dashboardPerformance.getDetailPersonalBacklog);
+  this.server.get('/personal/personal-backlog/:id', basicAuth.isAuthenticated, dashboardPerformance.getPersonalBacklog);
+
 };
 module.exports = AppServer;
