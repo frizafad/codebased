@@ -22,7 +22,29 @@ const getCalenderbydate = async (data) => {
   return response;
 };
 
+const getDetailPersonalBacklog = async (data) => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getDetailPersonalBacklog(data);
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
+
+const getPersonalBacklog = async (data) => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getPersonalBacklog(data);
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
+
 module.exports = {
   getMongo,
-  getCalenderbydate
+  getCalenderbydate,
+  getDetailPersonalBacklog,
+  getPersonalBacklog
 };

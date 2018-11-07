@@ -15,6 +15,15 @@ const modelCalendar = () => {
   return model;
 };
 
+const modelDetail = () => {
+  const model = {
+    'description': '',
+    'backlog': ''
+  };
+  return model;
+};
+
 module.exports = {
-  modelCalendar
+  modelCalendar,
+  modelDetail
 };
