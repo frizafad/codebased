@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use strict';
 
 const config = require('../../../../infra/configs/global_config');
@@ -140,15 +141,12 @@ const getCalenderbydate = async () => {
 
 module.exports = {
   getMongo,
-<<<<<<< HEAD
   getProductAll,
   getProductAllbyName,
-=======
   getSquadstatus,
   getMemberstatus,
   getTalent,
   getValid,
   getOneValid,
->>>>>>> e9a09ecc1b19735a8bf6ebe0ce5125d380cd6f58
   getCalenderbydate
 };
