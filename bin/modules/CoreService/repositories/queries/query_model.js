@@ -1,8 +1,16 @@
 'use strict';
-
-const modelA = () => {
+const modelCalendar = () => {
   const model = {
-    backlogType: ''
+    id: '',
+    judul: '',
+    description: '',
+    location: '',
+    startTime: '',
+    finishTime: '',
+    createdAt: '',
+    createdBy: '',
+    modifiedAt: '',
+    modifiedBy: '',
   };
   return model;
 };
@@ -18,6 +26,10 @@ const modelProductAll = () => {
 };
 
 module.exports = {
+<<<<<<< HEAD
   modelA,
   modelProductAll
+=======
+  modelCalendar
+>>>>>>> 2de4373f15cca300c73b91eb43f8690a59519099
 };
