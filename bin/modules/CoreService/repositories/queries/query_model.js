@@ -1,13 +1,21 @@
 'use strict';
-
-const modelA = () => {
+const modelCalendar = () => {
   const model = {
-    backlogType: ''
+    id: '',
+    judul: '',
+    description: '',
+    location: '',
+    startTime: '',
+    finishTime: '',
+    createdAt: '',
+    createdBy: '',
+    modifiedAt: '',
+    modifiedBy: '',
   };
   return model;
 };
 
-const modelB = () => {
+const modelQueue = () => {
   const model = {
     name : '',
     version : ''
@@ -16,6 +24,6 @@ const modelB = () => {
 };
 
 module.exports = {
-  modelA,
-  modelB
+  modelQueue,
+  modelCalendar
 };
