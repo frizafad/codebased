@@ -31,6 +31,15 @@ const getCalenderbydate = async (data) => {
   return response;
 };
 
+const getDetailPersonalBacklog = async (data) => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getDetailPersonalBacklog(data);
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
 const getMemberstatus = async (data) => {
   const getData = async () => {
     const dataRetailer = new CoreService();
@@ -41,6 +50,15 @@ const getMemberstatus = async (data) => {
   return response;
 };
 
+const getPersonalBacklog = async (data) => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getPersonalBacklog(data);
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
 const getTalent = async () => {
   const getData = async () => {
     const dataRetailer = new CoreService();
@@ -68,12 +86,15 @@ const getOneValid = async (data) => {
   const response = await getData();
   return response;
 };
+
 module.exports = {
   getMongo,
+  getCalenderbydate,
+  getDetailPersonalBacklog,
+  getPersonalBacklog,
   getSquadstatus,
   getMemberstatus,
   getTalent,
   getValid,
-  getOneValid,
-  getCalenderbydate
+  getOneValid
 };

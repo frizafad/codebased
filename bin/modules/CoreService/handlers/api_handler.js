@@ -128,6 +128,34 @@ const getCalenderbydate = async (req, res, next) => {
   sendResponse(await getData());
 };
 
+const getDetailPersonalBacklog = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getDetailPersonalBacklog(req.params);
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
+const getPersonalBacklog = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getPersonalBacklog(req.params);
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
 module.exports = {
   getMongo,
   getSquadstatus,
@@ -136,5 +164,7 @@ module.exports = {
   getValid,
   getOneValid,
   postCalendar,
-  getCalenderbydate
+  getCalenderbydate,
+  getDetailPersonalBacklog,
+  getPersonalBacklog
 };

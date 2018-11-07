@@ -120,8 +120,104 @@ class CoreService {
       return wrapper.data(arrData, '', 200);
     }
   }
-  
+
+  async getDetailPersonalBacklog (data) {
+    let result = await queries.getDetailPersonalBacklog(data);
+    let belum = 0;
+    let sedang = 0;
+    let sudah = 0;
+    let detailBelum = [];
+    let detailSedang = [];
+    let detailSudah = [];
+
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      let data = result.data;
+      await data.map(async (elem) => {
+        if (elem.backlog.backlogStatus === 'belum dikerjakan') {
+          belum += 1;
+          let modelDb = await model.modelDetail();
+          modelDb.description = elem.backlog.description;
+          modelDb.backlog = elem.backlog.id;
+          detailBelum.push(modelDb);
+        } else if (elem.backlog.backlogStatus === 'sedang dikerjakan') {
+          sedang += 1;
+          let modelDb = await model.modelDetail();
+          modelDb.description = elem.backlog.description;
+          modelDb.backlog = elem.backlog.id;
+          detailSedang.push(modelDb);
+        } else if (elem.backlog.backlogStatus === 'sudah dikerjakan') {
+          sudah += 1;
+          let modelDb = await model.modelDetail();
+          modelDb.description = elem.backlog.description;
+          modelDb.backlog = elem.backlog.id;
+          detailSudah.push(modelDb);
+        }
+      });
+      let hasil = {
+        totalBacklog: [
+          {
+            'status': 'belum dikerjakan',
+            'total': belum,
+            'description': detailBelum
+          },
+          {
+            'status': 'sedang dikerjakan',
+            'total': sedang,
+            'description': detailSedang
+          },
+          {
+            'status': 'sudah dikerjakan',
+            'total': sudah,
+            'description': detailSudah
+          }
+        ]
+      };
+      return wrapper.data(hasil, '', 200);
+    }
+  }
+
+  async getPersonalBacklog (data) {
+    let result = await queries.getPersonalBacklog(data);
+    let belum = 0;
+    let sedang = 0;
+    let sudah = 0;
+
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      let data = result.data;
+      await data.map(async (elem) => {
+        if (elem.backlog.backlogStatus === 'belum dikerjakan') {
+          belum += 1;
+        } else if (elem.backlog.backlogStatus === 'sedang dikerjakan') {
+          sedang += 1;
+        } else if (elem.backlog.backlogStatus === 'sudah dikerjakan') {
+          sudah += 1;
+        }
+      });
+      let hasil = {
+        totalBacklog: [
+          {
+            'status': 'belum dikerjakan',
+            'color': '#FA8E8E',
+            'total': belum
+          },
+          {
+            'status': 'sedang dikerjakan',
+            'color': '#A8CEEB',
+            'total': sedang
+          },
+          {
+            'status': 'sudah dikerjakan',
+            'color': '#A6EDE9',
+            'total': sudah
+          }
+        ]
+      };
+      return wrapper.data(hasil, '', 200);
+    }
+  }
 }
-
-
 module.exports = CoreService;

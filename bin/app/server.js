@@ -52,5 +52,8 @@ let AppServer = function () {
   this.server.get('/api/validator/get/:nama_project',basicAuth.isAuthenticated, dashboardPerformance.getOneValid);
   this.server.post('/api/calendar/post', basicAuth.isAuthenticated, dashboardPerformance.postCalendar);
   this.server.get('/personal/calender/:startTime', basicAuth.isAuthenticated, dashboardPerformance.getCalenderbydate);
+  this.server.get('/personal/detail/:id', basicAuth.isAuthenticated, dashboardPerformance.getDetailPersonalBacklog);
+  this.server.get('/personal/personal-backlog/:id', basicAuth.isAuthenticated, dashboardPerformance.getPersonalBacklog);
+
 };
 module.exports = AppServer;

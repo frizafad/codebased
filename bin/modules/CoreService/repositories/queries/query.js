@@ -125,12 +125,54 @@ const getCalenderbydate = async () => {
   return recordset;
 };
 
+const getDetailPersonalBacklog = async (data) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('members');
+  const recordset = await db.aggregatePersonalBacklog([
+    {$match: {id: data.id}},
+    {$lookup:
+      {
+        from: 'backlogs',
+        localField: 'id',
+        foreignField: 'assignee.id',
+        as: 'backlog'
+      }
+
+    },
+    {$unwind: '$backlog'}
+
+  ]);
+  return recordset;
+};
+
+const getPersonalBacklog = async (data) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('members');
+  const recordset = await db.aggregatePersonalBacklog([
+    {$match: {id: data.id}},
+    {$lookup:
+      {
+        from: 'backlogs',
+        localField: 'id',
+        foreignField: 'assignee.id',
+        as: 'backlog'
+      }
+
+    },
+    {$unwind: '$backlog'}
+
+  ]);
+  return recordset;
+};
+
 module.exports = {
   getMongo,
+  getCalenderbydate,
+  getDetailPersonalBacklog,
+  getPersonalBacklog,
   getSquadstatus,
   getMemberstatus,
   getTalent,
   getValid,
-  getOneValid,
-  getCalenderbydate
+  getOneValid
 };
