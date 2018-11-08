@@ -20,7 +20,6 @@ let AppServer = function () {
   this.server.use(restify.plugins.bodyParser());
   this.server.use(restify.plugins.authorizationParser());
 
-  // required for CORS configuration
   this.server.use(cors());
   this.server.opts(/.*/, function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -33,10 +32,8 @@ let AppServer = function () {
     return next();
   });
 
-  // required for basic auth
   this.server.use(basicAuth.init());
 
-  // anonymous can access the end point, place code bellow
   this.server.get('/', (req, res, next) => {
     wrapper.response(res, `success`, wrapper.data(`Code BackEnd`), `This service is running properly`);
   });

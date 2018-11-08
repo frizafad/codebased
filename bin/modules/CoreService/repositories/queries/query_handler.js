@@ -11,7 +11,6 @@ const getMongo = async () => {
   const response = await getData();
   return response;
 };
-
 const getProductAll = async (data) => {
   const getData = async () => {
     const dataRetailer = new CoreService();
@@ -25,16 +24,15 @@ const getProductAll = async (data) => {
 const getProductAllbyName = async (data) => {
   const getData = async () => {
     const dataRetailer = new CoreService();
-    const result = await dataRetailer.getProductAllbyName(data.name, data.page);
+    const result = await dataRetailer.getDetailPersonalBacklog(data);
     return result;
   };
   const response = await getData();
   return response;
 };
 
-
 module.exports = {
   getMongo,
   getProductAll,
-  getProductAllbyName,
+  getProductAllbyName
 };

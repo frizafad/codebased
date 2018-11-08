@@ -2,8 +2,6 @@
 
 const wrapper = require('../../../helpers/utils/wrapper');
 const queryHandler = require('../repositories/queries/query_handler');
-const CommandHandler = require('../repositories/commands/command_handler');
-const moment = require('moment');
 
 const getMongo = async (req, res, next) => {
   const getData = async () => {
@@ -33,9 +31,6 @@ const getProductAll = async (req, res, next) => {
   sendResponse(await getData());
 };
 
-
-};
-
 const getProductAllbyName = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getProductAllbyName(req.params);
@@ -53,5 +48,5 @@ const getProductAllbyName = async (req, res, next) => {
 module.exports = {
   getMongo,
   getProductAll,
-  getProductAllbyName,
+  getProductAllbyName
 };

@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+
 'use strict';
 
 const config = require('../../../../infra/configs/global_config');
