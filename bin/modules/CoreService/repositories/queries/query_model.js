@@ -9,6 +9,16 @@ const modelA = () => {
   return model;
 };
 
+const modelProductAll = () => {
+  const model = {
+    nameProduct: '',
+    startProject: '',
+    unit: '',
+    ver: ''
+  };
+  return model;
+};
+
 const modelSquad = () => {
   const model = {
     squadid: '',
@@ -90,6 +100,7 @@ const modelgetNotification = () => {
 
 module.exports = {
   modelA,
+  modelProductAll,
   modelgetProduct,
   modelgetNotification,
   modelQueue,

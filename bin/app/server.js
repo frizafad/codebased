@@ -39,6 +39,9 @@ let AppServer = function () {
   });
 
   this.server.get('/api/mongo', basicAuth.isAuthenticated, dashboardPerformance.getMongo);
+  this.server.get('/product/getAll/:page', basicAuth.isAuthenticated, dashboardPerformance.getProductAll);
+  this.server.get('/product/getAll/:name/:page', basicAuth.isAuthenticated, dashboardPerformance.getProductAllbyName);
+  this.server.get('/product/get', basicAuth.isAuthenticated, dashboardPerformance.getQueue);   
   this.server.get('/api/product', basicAuth.isAuthenticated, dashboardPerformance.getProduct);
   this.server.get('/api/notification', basicAuth.isAuthenticated, dashboardPerformance.getNotification);
   this.server.get('/product/get', basicAuth.isAuthenticated, dashboardPerformance.getQueue);

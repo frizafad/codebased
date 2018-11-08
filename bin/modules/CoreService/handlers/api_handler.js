@@ -19,6 +19,20 @@ const getMongo = async (req, res, next) => {
   sendResponse(await getData());
 };
 
+const getProductAll = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getProductAll(req.params);
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
 const getProduct = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getProduct();
@@ -32,6 +46,7 @@ const getProduct = async (req, res, next) => {
   };
   sendResponse(await getData());
 };
+
 const getQueue = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getQueue();
@@ -142,6 +157,20 @@ const postCalendar = async (req, res, next) => {
   sendResponse(await postData());
 };
 
+const getProductAllbyName = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getProductAllbyName(req.params);
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
 const getCalenderbydate = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getCalenderbydate(req.params.startTime);
@@ -200,6 +229,8 @@ const getPersonalBacklog = async (req, res, next) => {
 
 module.exports = {
   getMongo,
+  getProductAll,
+  getProductAllbyName,
   getProduct,
   getNotification,
   getQueue,

@@ -12,9 +12,8 @@ class CoreService {
       return wrapper.error('fail', 'Data not found', 409);
     } else {
       let data = result.data;
-      data.map(async (item) => {
-        let modelDb = await model.modelA();
-        modelDb.backlogType = item.backlogType;
+      data.map(async (_item) => {
+        let modelDb = await model.modelProductAll();
         arrData.push(modelDb);
       });
       return wrapper.data(arrData, '', 200);
@@ -117,7 +116,6 @@ class CoreService {
     let arrData = [];
     let result = await queries.getValid();
     if (result.err) {
-      logger.log(result.err.message, 'Cannot find Data');
       return wrapper.error('fail', 'Data not found', 409);
     } else {
       let data = result.data;
@@ -135,7 +133,6 @@ class CoreService {
     let arrData = [];
     let result = await queries.getOneValid(data);
     if (result.err) {
-      logger.log(result.err.message, 'Cannot find Data');
       return wrapper.error('fail', 'Data not found', 409);
     } else {
       let data = [];
@@ -150,9 +147,104 @@ class CoreService {
     }
     return wrapper.data(arrData, ' ', 200);
   }
+
+  async getProductAll (page) {
+    let arrData = [];
+    var limit = 10;
+    const kond = [
+      {
+        $lookup:
+        {
+          from: 'squads',
+          localField: 'squadid',
+          foreignField: 'squadid',
+          as: 'unit'
+        }
+      },
+      {
+        $project: {
+          '_id': 0,
+          'name': 1,
+          'startproject': 1,
+          'unit': { 'name': 1 },
+          'version': 1
+        }
+      }, {
+        $skip: Number(limit * (page - 1))
+      },
+      {
+        $limit: Number(limit)
+      }
+    ];
+    let result = await queries.getProductAll(kond);
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      let data = result.data;
+      data.map(async (item) => {
+        let modelDb = await model.modelProductAll();
+        modelDb.nameProduct = item.name;
+        modelDb.startProject = item.startproject;
+        modelDb.unit = item.unit;
+        modelDb.ver = item.version;
+        arrData.push(modelDb);
+      });
+      return wrapper.data(arrData, '', 200);
+    }
+  }
+
+  async getProductAllbyName (name, page) {
+    let arrData = [];
+    var limit = 10;
+    const kond = [
+      {
+        $match: {
+          'name': {$regex: name}
+        }
+      },
+      {
+        $lookup:
+        {
+          from: 'squads',
+          localField: 'squadid',
+          foreignField: 'squadid',
+          as: 'unit'
+        }
+      },
+      {
+        $project: {
+          '_id': 0,
+          'name': 1,
+          'startproject': 1,
+          'unit': { 'name': 1 },
+          'version': 1
+        }
+      }, {
+        $skip: Number(limit * (page - 1))
+      },
+      {
+        $limit: Number(limit)
+      }
+    ];
+    let result = await queries.getProductAllbyName(kond);
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      let data = result.data;
+      data.map(async (item) => {
+        let modelDb = await model.modelProductAll();
+        modelDb.nameProduct = item.name;
+        modelDb.startProject = item.startproject;
+        modelDb.unit = item.unit;
+        modelDb.ver = item.version;
+        arrData.push(modelDb);
+      });
+      return wrapper.data(arrData, '', 200);
+    }
+  }
+
   async getCalenderbydate (time) {
     let arrData = [];
-
     let result = await queries.getCalenderbydate();
     if (result.err) {
       return wrapper.error('fail', 'Data not found', 409);
@@ -187,7 +279,6 @@ class CoreService {
       return wrapper.data(arrData, '', 200);
     }
   }
-
   async getDetailPersonalBacklog (data) {
     let result = await queries.getDetailPersonalBacklog(data);
     let belum = 0;
@@ -286,5 +377,5 @@ class CoreService {
       return wrapper.data(hasil, '', 200);
     }
   }
-}
+};
 module.exports = CoreService;
