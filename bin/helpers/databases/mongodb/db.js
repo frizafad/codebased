@@ -298,7 +298,7 @@ class DB {
         }
       } catch (err) {
         logger.log(ctx, err.message, 'Error find data in mongodb');
-        return wrapper.error(`Error Find Many Mongo ${err.message}`, `${err.message}`, 409);
+        return wrapper.error(`Error Find Many Mongo ${err.message}`, `${err.message}`, 409); 
       }
     }
   }
