@@ -17,7 +17,15 @@ const getCalenderbydate = async () => {
   return recordset;
 };
 
+const getpersonalscore = async (data) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('members');
+  const recordset = await db.findOne(data);
+  return recordset;
+  };
+
 module.exports = {
   getMongo,
-  getCalenderbydate
+  getCalenderbydate,
+  getpersonalscore
 };

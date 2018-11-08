@@ -22,7 +22,18 @@ const getCalenderbydate = async (data) => {
   return response;
 };
 
+const getpersonalscore = async (data) => {
+  const getData = async () => {
+  const dataRetailer = new CoreService();
+  const result = await dataRetailer.getpersonalscore(data);
+  return result;
+  };
+  const response = await getData();
+  return response;
+  };
+
 module.exports = {
   getMongo,
-  getCalenderbydate
+  getCalenderbydate,
+  getpersonalscore
 };

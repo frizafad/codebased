@@ -53,6 +53,30 @@ class CoreService {
       return wrapper.data(arrData, '', 200);
     }
   }
+  async getpersonalscore (data) {
+    let arrData = [];
+    let ctx = 'domain-getpersonalscore';
+    let result = await queries.getpersonalscore(data);
+    if (result.err) {
+      logger.log(ctx, result.err.message, "Cannot find MuridKungfu");
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      let data = result.data;
+      console.log(data);
+      
+        let modelDb = await model.personalscore();
+        modelDb.id = data.id,
+        modelDb.name = data.name,
+        modelDb.imageUrl = data.imageUrl,
+        modelDb.keyPoints = data.keyPoints,
+        modelDb.needImprovements = data.needImprovements,
+        modelDb.rating = data.rating,
+        modelDb.projectHistory = data.projectHistory,
+        modelDb.title = data.title
+        arrData.push(modelDb);
+    };
+      return wrapper.data(arrData, '', 200);
+    }
 }
 
 module.exports = CoreService;

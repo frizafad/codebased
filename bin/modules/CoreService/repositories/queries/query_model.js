@@ -15,6 +15,27 @@ const modelCalendar = () => {
   return model;
 };
 
+const personalscore = () => {
+  const model = {
+  id: '',
+  name: '',
+  imageUrl: '',
+  keyPoints: [
+  
+  ],
+  needImprovements: [
+  
+  ],
+  rating: '',
+  projectHistory: [
+  
+  ],
+  title: ''
+  };
+  return model;
+  };
+
 module.exports = {
-  modelCalendar
+  modelCalendar,
+  personalscore
 };

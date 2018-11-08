@@ -44,5 +44,6 @@ let AppServer = function () {
   this.server.get('/api/mongo', basicAuth.isAuthenticated, dashboardPerformance.getMongo);
   this.server.post('/api/calendar/post', basicAuth.isAuthenticated, dashboardPerformance.postCalendar);
   this.server.get('/personal/calender/:startTime', basicAuth.isAuthenticated, dashboardPerformance.getCalenderbydate);
+  this.server.get('/api/personal/score/:id', basicAuth.isAuthenticated, dashboardPerformance.getpersonalscore);
 };
 module.exports = AppServer;
