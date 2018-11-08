@@ -28,15 +28,15 @@ const modelCalendar = () => {
     createdAt: '',
     createdBy: '',
     modifiedAt: '',
-    modifiedBy: '',
+    modifiedBy: ''
   };
   return model;
 };
 
 const modelQueue = () => {
   const model = {
-    name : '',
-    version : ''
+    name: '',
+    version: ''
   };
   return model;
 };

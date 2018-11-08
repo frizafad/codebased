@@ -68,7 +68,8 @@ class CoreService {
       });
       return wrapper.data(arrData, 'Your Request Has Been Processed', 200);
     }
-  }
+  };
+
   async getQueue () {
     let arrData = [];
     let result = await queries.getQueue();
@@ -85,6 +86,7 @@ class CoreService {
       return wrapper.data(arrData, '', 200);
     }
   }
+
   async getSquadstatus () {
     let result = await queries.getSquadstatus();
     if (result.err) {

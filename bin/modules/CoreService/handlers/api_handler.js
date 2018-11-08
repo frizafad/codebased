@@ -36,6 +36,7 @@ const getQueue = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getQueue();
   };
+
   const sendResponse = async (result) => {
     if (result.err !== false) {
       wrapper.response(res, 'success', result);
@@ -106,7 +107,7 @@ const getOneValid = async (req, res, next) => {
     return queryHandler.getOneValid(req.params);
   };
   const sendResponse = async (result) => {
-    if (result.err != false) {
+    if (result.err !== false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
@@ -132,7 +133,7 @@ const postCalendar = async (req, res, next) => {
     return CommandHandler.postCalendar(data);
   };
   const sendResponse = async (result) => {
-    if (result.err != false) {
+    if (result.err !== false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
@@ -146,7 +147,7 @@ const getCalenderbydate = async (req, res, next) => {
     return queryHandler.getCalenderbydate(req.params.startTime);
   };
   const sendResponse = async (result) => {
-    if (result.err != false) {
+    if (result.err !== false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
@@ -182,6 +183,7 @@ const getNotification = async (req, res, next) => {
   };
   sendResponse(await getData());
 };
+
 const getPersonalBacklog = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getPersonalBacklog(req.params);
