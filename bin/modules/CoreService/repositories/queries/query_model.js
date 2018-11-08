@@ -33,6 +33,13 @@ const modelCalendar = () => {
   return model;
 };
 
+const modelQueue = () => {
+  const model = {
+    name : '',
+    version : ''
+  };
+  return model;
+};
 const modelDetail = () => {
   const model = {
     'description': '',
@@ -42,6 +49,7 @@ const modelDetail = () => {
 };
 
 module.exports = {
+  modelQueue,
   modelCalendar,
   modelDetail,
   modelA,

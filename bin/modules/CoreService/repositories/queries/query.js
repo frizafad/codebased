@@ -118,6 +118,12 @@ const getTalent = async () => {
   return Arrdata;
 };
 
+const getQueue = async () => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('products');
+  const recordset = await db.findMany();
+  return recordset;
+};
 const getCalenderbydate = async () => {
   const db = new Mongo(config.getDatabaseUrl());
   db.setCollection('calendar');
@@ -167,6 +173,7 @@ const getPersonalBacklog = async (data) => {
 
 module.exports = {
   getMongo,
+  getQueue,
   getCalenderbydate,
   getDetailPersonalBacklog,
   getPersonalBacklog,

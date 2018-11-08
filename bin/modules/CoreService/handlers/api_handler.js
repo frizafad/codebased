@@ -19,6 +19,20 @@ const getMongo = async (req, res, next) => {
   sendResponse(await getData());
 };
 
+const getQueue = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getQueue();
+  };
+    
+    const sendResponse = async (result) => {
+      if (result.err !== false) {
+        wrapper.response(res, 'success', result);
+      } else {
+        wrapper.response(res, 'error', result);
+      }
+    };
+    sendResponse(await getData());
+  };
 const getSquadstatus = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getSquadstatus();
@@ -158,6 +172,7 @@ const getPersonalBacklog = async (req, res, next) => {
 
 module.exports = {
   getMongo,
+  getQueue,
   getSquadstatus,
   getMemberstatus,
   getTalent,

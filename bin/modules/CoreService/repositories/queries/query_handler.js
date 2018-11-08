@@ -11,6 +11,15 @@ const getMongo = async () => {
   const response = await getData();
   return response;
 };
+const getQueue = async () => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getQueue();
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
 
 const getSquadstatus = async () => {
   const getData = async () => {
@@ -89,6 +98,7 @@ const getOneValid = async (data) => {
 
 module.exports = {
   getMongo,
+  getQueue,
   getCalenderbydate,
   getDetailPersonalBacklog,
   getPersonalBacklog,
