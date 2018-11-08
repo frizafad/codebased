@@ -139,14 +139,121 @@ const getCalenderbydate = async () => {
   return recordset;
 };
 
+const getProduct = async (data) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('products');
+  const recordset = await db.innerJoin(
+    [
+      {
+        $lookup:
+      {
+        from: 'squads',
+        localField: 'squadId',
+        foreignField: 'id',
+        as: 'squad'
+      }},
+      {$unwind: '$squad'}
+    ]
+  );
+  return recordset;
+};
+
+const getSquad = async () => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('squads');
+  const recordset = await db.innerJoin(
+    [
+      {
+        $match: {sprintId: 'SP001'}
+      }, {
+        $lookup:
+      {
+        from: 'sprints',
+        localField: 'sprintId',
+        foreignField: 'id',
+        as: 'sprint'
+      }
+      }, {$unwind: '$sprint'}]);
+  return recordset;
+};
+
+const innerSquad = async (data) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('squads');
+  const recordset = await db.innerJoin(
+    [{
+      $match: {sprintId: 'SP001'}
+    }, {
+      $lookup:
+        {
+          from: 'sprints',
+          localField: 'sprintId',
+          foreignField: 'id',
+          as: 'sprint'
+        }
+    }, {$unwind: '$sprint'}]);
+  return recordset;
+};
+const getQueue = async () => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('products');
+  const recordset = await db.findMany();
+  return recordset;
+};
+
+const getDetailPersonalBacklog = async (data) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('members');
+  const recordset = await db.aggregatePersonalBacklog([
+    {$match: {id: data.id}},
+    {$lookup:
+      {
+        from: 'backlogs',
+        localField: 'id',
+        foreignField: 'assignee.id',
+        as: 'backlog'
+      }
+
+    },
+    {$unwind: '$backlog'}
+
+  ]);
+  return recordset;
+};
+
+const getPersonalBacklog = async (data) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('members');
+  const recordset = await db.aggregatePersonalBacklog([
+    {$match: {id: data.id}},
+    {$lookup:
+      {
+        from: 'backlogs',
+        localField: 'id',
+        foreignField: 'assignee.id',
+        as: 'backlog'
+      }
+
+    },
+    {$unwind: '$backlog'}
+
+  ]);
+  return recordset;
+};
 module.exports = {
   getMongo,
   getProductAll,
   getProductAllbyName,
+  getProduct,
+  innerSquad,
+  getSquad,
+  getQueue,
+  getCalenderbydate,
+  getDetailPersonalBacklog,
+  getPersonalBacklog,
   getSquadstatus,
   getMemberstatus,
   getTalent,
   getValid,
-  getOneValid,
-  getCalenderbydate
+  getOneValid
 };

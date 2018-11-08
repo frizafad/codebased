@@ -33,6 +33,20 @@ const getProductAll = async (req, res, next) => {
   sendResponse(await getData());
 };
 
+const getProduct = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getProduct();
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
 const getQueue = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getQueue();
@@ -47,6 +61,7 @@ const getQueue = async (req, res, next) => {
   };
   sendResponse(await getData());
 };
+
 const getSquadstatus = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getSquadstatus();
@@ -184,6 +199,20 @@ const getDetailPersonalBacklog = async (req, res, next) => {
   sendResponse(await getData());
 };
 
+const getNotification = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getNotification();
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
 const getPersonalBacklog = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getPersonalBacklog(req.params);
@@ -202,6 +231,8 @@ module.exports = {
   getMongo,
   getProductAll,
   getProductAllbyName,
+  getProduct,
+  getNotification,
   getQueue,
   getSquadstatus,
   getMemberstatus,
