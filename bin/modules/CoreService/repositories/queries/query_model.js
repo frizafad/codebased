@@ -19,7 +19,50 @@ const modelProductAll = () => {
   return model;
 };
 
+const modelSquad = () => {
+  const model = {
+    squadid: '',
+    backlogId: ''
+  };
+  return model;
+};
+
+const modelCalendar = () => {
+  const model = {
+    id: '',
+    judul: '',
+    description: '',
+    location: '',
+    startTime: '',
+    finishTime: '',
+    createdAt: '',
+    createdBy: '',
+    modifiedAt: '',
+    modifiedBy: ''
+  };
+  return model;
+};
+
+const modelQueue = () => {
+  const model = {
+    name: '',
+    version: ''
+  };
+  return model;
+};
+const modelDetail = () => {
+  const model = {
+    'description': '',
+    'backlog': ''
+  };
+  return model;
+};
+
 module.exports = {
   modelA,
-  modelProductAll
+  modelProductAll,
+  modelCalendar,
+  modelQueue,
+  modelDetail,
+  modelSquad
 };
