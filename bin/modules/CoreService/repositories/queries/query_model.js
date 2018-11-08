@@ -2,7 +2,9 @@
 
 const modelA = () => {
   const model = {
-    backlogType: ''
+    nama_project: '',
+    datetime: '',
+    po: ''
   };
   return model;
 };
@@ -13,6 +15,14 @@ const modelProductAll = () => {
     startProject: '',
     unit: '',
     ver: ''
+  };
+  return model;
+};
+
+const modelSquad = () => {
+  const model = {
+    squadid: '',
+    backlogId: ''
   };
   return model;
 };
@@ -33,9 +43,27 @@ const modelCalendar = () => {
   return model;
 };
 
+const modelQueue = () => {
+  const model = {
+    name: '',
+    version: ''
+  };
+  return model;
+};
+const modelDetail = () => {
+  const model = {
+    'description': '',
+    'backlog': ''
+  };
+  return model;
+};
+
 module.exports = {
 
   modelA,
   modelProductAll,
-  modelCalendar
+  modelCalendar,
+  modelQueue,
+  modelDetail,
+  modelSquad
 };
