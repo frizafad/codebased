@@ -96,8 +96,30 @@ const getOneValid = async (data) => {
   return response;
 };
 
+const getProduct = async (data) => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getProduct(data);
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
+
+const getNotification = async (data) => {
+  const getData = async () => {
+    const dataRetailer = new CoreService();
+    const result = await dataRetailer.getNotification(data);
+    return result;
+  };
+  const response = await getData();
+  return response;
+};
+
 module.exports = {
   getMongo,
+  getProduct,
+  getNotification,
   getQueue,
   getCalenderbydate,
   getDetailPersonalBacklog,

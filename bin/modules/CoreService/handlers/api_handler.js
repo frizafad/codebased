@@ -19,20 +19,34 @@ const getMongo = async (req, res, next) => {
   sendResponse(await getData());
 };
 
+const getProduct = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getProduct();
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
 const getQueue = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getQueue();
   };
-    
-    const sendResponse = async (result) => {
-      if (result.err !== false) {
-        wrapper.response(res, 'success', result);
-      } else {
-        wrapper.response(res, 'error', result);
-      }
-    };
-    sendResponse(await getData());
+
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
   };
+  sendResponse(await getData());
+};
+
 const getSquadstatus = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getSquadstatus();
@@ -93,7 +107,7 @@ const getOneValid = async (req, res, next) => {
     return queryHandler.getOneValid(req.params);
   };
   const sendResponse = async (result) => {
-    if (result.err != false) {
+    if (result.err !== false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
@@ -119,12 +133,12 @@ const postCalendar = async (req, res, next) => {
     return CommandHandler.postCalendar(data);
   };
   const sendResponse = async (result) => {
-    if (result.err != false) {
+    if (result.err !== false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
     }
-  }
+  };
   sendResponse(await postData());
 };
 
@@ -133,7 +147,7 @@ const getCalenderbydate = async (req, res, next) => {
     return queryHandler.getCalenderbydate(req.params.startTime);
   };
   const sendResponse = async (result) => {
-    if (result.err != false) {
+    if (result.err !== false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
@@ -145,6 +159,20 @@ const getCalenderbydate = async (req, res, next) => {
 const getDetailPersonalBacklog = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getDetailPersonalBacklog(req.params);
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
+const getNotification = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getNotification();
   };
   const sendResponse = async (result) => {
     if (result.err !== false) {
@@ -172,6 +200,8 @@ const getPersonalBacklog = async (req, res, next) => {
 
 module.exports = {
   getMongo,
+  getProduct,
+  getNotification,
   getQueue,
   getSquadstatus,
   getMemberstatus,

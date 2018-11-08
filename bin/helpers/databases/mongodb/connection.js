@@ -39,7 +39,8 @@ const createConnection = async (config) => {
   try {
     const connection = await Mongo.connect(config, options);
     return wrapper.data(connection);
-  } catch (err)  {
+  } catch (err) {
+    console.log(err);
     return wrapper.error(err, err.message, 503);
   }
 };

@@ -20,6 +20,55 @@ class CoreService {
       return wrapper.data(arrData, '', 200);
     }
   }
+  async getProduct (data) {
+    let arrData = [];
+    let result = await queries.getProduct(data);
+    let result2 = await queries.getSquad(data);
+
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      const data = result.data;
+      const data2 = result2.data;
+
+      data.map(async (item) => {
+        const modelDb = await model.modelgetProduct();
+        modelDb.id = item.id;
+        modelDb.productName = item.name;
+        data2.map(async (items) => {
+          modelDb.sprint = items.sprint.sprintName;
+          modelDb.squad = item.squad.name;
+          modelDb.member = item.squad.member;
+          modelDb.stakeholder = item.stakeholder;
+          modelDb.note = items.sprint.note;
+        });
+        arrData.push(modelDb);
+      });
+      return wrapper.data(arrData, 'Your Request Has Been Processed', 200);
+    }
+  }
+
+  async getNotification (data) {
+    let arrData = [];
+    let result = await queries.innerSquad(data);
+
+    if (result.err) {
+      return wrapper.error('Internal Server Error', 'Internal Server Error', 500);
+    } else {
+      let data = result.data;
+
+      data.map(async (item) => {
+        let modelDb = await model.modelgetNotification();
+        modelDb.member = item.member;
+        modelDb.description = 'Menambahkan anda dalam ' + item.description + ' ' + item.sprint.backlog.backlogId;
+        modelDb.squad = item.name;
+        modelDb.backlog = 'backlog ' + item.sprint.backlog.backlogId;
+
+        arrData.push(modelDb);
+      });
+      return wrapper.data(arrData, 'Your Request Has Been Processed', 200);
+    }
+  };
 
   async getQueue () {
     let arrData = [];
@@ -35,7 +84,9 @@ class CoreService {
         arrData.push(modelDb);
       });
       return wrapper.data(arrData, '', 200);
-    }}
+    }
+  }
+
   async getSquadstatus () {
     let result = await queries.getSquadstatus();
     if (result.err) {
@@ -62,36 +113,15 @@ class CoreService {
       return wrapper.data(result, '', 200);
     }
   }
-  async getValid(data){
+  async getValid (data) {
     let arrData = [];
     let result = await queries.getValid();
     if (result.err) {
-      logger.log(result.err.message, "Cannot find Data");
+      logger.log(result.err.message, 'Cannot find Data');
       return wrapper.error('fail', 'Data not found', 409);
-    }
-    else {
+    } else {
       let data = result.data;
-      data.map(async (item)=>{
-        let modelDb = await model.modelA();
-        modelDb.nama_project = item.nama_project;
-        modelDb.datetime = item.datetime;
-        modelDb.po = item.po;
-        arrData.push(modelDb);
-      })
-    }
-    return wrapper.data(arrData,' ',200);
-  }
-  async getOneValid(data){
-    let arrData = [];
-    let result = await queries.getOneValid(data);
-    if (result.err) {
-      logger.log(result.err.message, "Cannot find Data");
-      return wrapper.error('fail', 'Data not found', 409);
-    }
-    else {
-      let data = [];
-      data.push(result.data)
-      data.map(async (item)=>{
+      data.map(async (item) => {
         let modelDb = await model.modelA();
         modelDb.nama_project = item.nama_project;
         modelDb.datetime = item.datetime;
@@ -99,7 +129,26 @@ class CoreService {
         arrData.push(modelDb);
       });
     }
-    return wrapper.data(arrData,' ',200);
+    return wrapper.data(arrData, ' ', 200);
+  }
+  async getOneValid (data) {
+    let arrData = [];
+    let result = await queries.getOneValid(data);
+    if (result.err) {
+      logger.log(result.err.message, 'Cannot find Data');
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      let data = [];
+      data.push(result.data);
+      data.map(async (item) => {
+        let modelDb = await model.modelA();
+        modelDb.nama_project = item.nama_project;
+        modelDb.datetime = item.datetime;
+        modelDb.po = item.po;
+        arrData.push(modelDb);
+      });
+    }
+    return wrapper.data(arrData, ' ', 200);
   }
   async getCalenderbydate (time) {
     let arrData = [];
@@ -111,13 +160,13 @@ class CoreService {
       let data = result.data;
       data.map(async (item) => {
         let modelDb = await model.modelB();
-        modelDb.name = item.name,
-        modelDb.version = item.version
+        modelDb.name = item.name;
+        modelDb.version = item.version;
         arrData.push(modelDb);
-        
+
         let modelCal = await model.modelCalendar();
-        let query = item.startTime.split('T',1);
-        if(query == time){
+        let query = item.startTime.split('T', 1);
+        if (query === time) {
           let startTime = new Date(item.startTime);
           let finishTime = new Date(item.finishTime);
           let createdAt = new Date(item.createdAt);
@@ -134,7 +183,6 @@ class CoreService {
           modelCal.modifiedBy = item.modifiedBy;
           arrData.push(modelCal);
         }
-        
       });
       return wrapper.data(arrData, '', 200);
     }
@@ -239,5 +287,4 @@ class CoreService {
     }
   }
 }
-
 module.exports = CoreService;
