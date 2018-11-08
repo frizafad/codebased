@@ -12,14 +12,62 @@ class CoreService {
       return wrapper.error('fail', 'Data not found', 409);
     } else {
       let data = result.data;
-      data.map(async (item) => {
-        let modelDb = await model.modelA();
-        modelDb.backlogType = item.backlogType;
+      data.map(async (_item) => {
+        let modelDb = await model.modelProductAll();
         arrData.push(modelDb);
       });
       return wrapper.data(arrData, '', 200);
     }
   }
+  async getProduct (data) {
+    let arrData = [];
+    let result = await queries.getProduct(data);
+    let result2 = await queries.getSquad(data);
+
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      const data = result.data;
+      const data2 = result2.data;
+
+      data.map(async (item) => {
+        const modelDb = await model.modelgetProduct();
+        modelDb.id = item.id;
+        modelDb.productName = item.name;
+        data2.map(async (items) => {
+          modelDb.sprint = items.sprint.sprintName;
+          modelDb.squad = item.squad.name;
+          modelDb.member = item.squad.member;
+          modelDb.stakeholder = item.stakeholder;
+          modelDb.note = items.sprint.note;
+        });
+        arrData.push(modelDb);
+      });
+      return wrapper.data(arrData, 'Your Request Has Been Processed', 200);
+    }
+  }
+
+  async getNotification (data) {
+    let arrData = [];
+    let result = await queries.innerSquad(data);
+
+    if (result.err) {
+      return wrapper.error('Internal Server Error', 'Internal Server Error', 500);
+    } else {
+      let data = result.data;
+
+      data.map(async (item) => {
+        let modelDb = await model.modelgetNotification();
+        modelDb.member = item.member;
+        modelDb.description = 'Menambahkan anda dalam ' + item.description + ' ' + item.sprint.backlog.backlogId;
+        modelDb.squad = item.name;
+        modelDb.backlog = 'backlog ' + item.sprint.backlog.backlogId;
+
+        arrData.push(modelDb);
+      });
+      return wrapper.data(arrData, 'Your Request Has Been Processed', 200);
+    }
+  };
 
   async getQueue () {
     let arrData = [];
@@ -35,7 +83,9 @@ class CoreService {
         arrData.push(modelDb);
       });
       return wrapper.data(arrData, '', 200);
-    }}
+    }
+  }
+
   async getSquadstatus () {
     let result = await queries.getSquadstatus();
     if (result.err) {
@@ -62,36 +112,14 @@ class CoreService {
       return wrapper.data(result, '', 200);
     }
   }
-  async getValid(data){
+  async getValid (data) {
     let arrData = [];
     let result = await queries.getValid();
     if (result.err) {
-      logger.log(result.err.message, "Cannot find Data");
       return wrapper.error('fail', 'Data not found', 409);
-    }
-    else {
+    } else {
       let data = result.data;
-      data.map(async (item)=>{
-        let modelDb = await model.modelA();
-        modelDb.nama_project = item.nama_project;
-        modelDb.datetime = item.datetime;
-        modelDb.po = item.po;
-        arrData.push(modelDb);
-      })
-    }
-    return wrapper.data(arrData,' ',200);
-  }
-  async getOneValid(data){
-    let arrData = [];
-    let result = await queries.getOneValid(data);
-    if (result.err) {
-      logger.log(result.err.message, "Cannot find Data");
-      return wrapper.error('fail', 'Data not found', 409);
-    }
-    else {
-      let data = [];
-      data.push(result.data)
-      data.map(async (item)=>{
+      data.map(async (item) => {
         let modelDb = await model.modelA();
         modelDb.nama_project = item.nama_project;
         modelDb.datetime = item.datetime;
@@ -99,11 +127,124 @@ class CoreService {
         arrData.push(modelDb);
       });
     }
-    return wrapper.data(arrData,' ',200);
+    return wrapper.data(arrData, ' ', 200);
   }
+  async getOneValid (data) {
+    let arrData = [];
+    let result = await queries.getOneValid(data);
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      let data = [];
+      data.push(result.data);
+      data.map(async (item) => {
+        let modelDb = await model.modelA();
+        modelDb.nama_project = item.nama_project;
+        modelDb.datetime = item.datetime;
+        modelDb.po = item.po;
+        arrData.push(modelDb);
+      });
+    }
+    return wrapper.data(arrData, ' ', 200);
+  }
+
+  async getProductAll (page) {
+    let arrData = [];
+    var limit = 10;
+    const kond = [
+      {
+        $lookup:
+        {
+          from: 'squads',
+          localField: 'squadid',
+          foreignField: 'squadid',
+          as: 'unit'
+        }
+      },
+      {
+        $project: {
+          '_id': 0,
+          'name': 1,
+          'startproject': 1,
+          'unit': { 'name': 1 },
+          'version': 1
+        }
+      }, {
+        $skip: Number(limit * (page - 1))
+      },
+      {
+        $limit: Number(limit)
+      }
+    ];
+    let result = await queries.getProductAll(kond);
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      let data = result.data;
+      data.map(async (item) => {
+        let modelDb = await model.modelProductAll();
+        modelDb.nameProduct = item.name;
+        modelDb.startProject = item.startproject;
+        modelDb.unit = item.unit;
+        modelDb.ver = item.version;
+        arrData.push(modelDb);
+      });
+      return wrapper.data(arrData, '', 200);
+    }
+  }
+
+  async getProductAllbyName (name, page) {
+    let arrData = [];
+    var limit = 10;
+    const kond = [
+      {
+        $match: {
+          'name': {$regex: name}
+        }
+      },
+      {
+        $lookup:
+        {
+          from: 'squads',
+          localField: 'squadid',
+          foreignField: 'squadid',
+          as: 'unit'
+        }
+      },
+      {
+        $project: {
+          '_id': 0,
+          'name': 1,
+          'startproject': 1,
+          'unit': { 'name': 1 },
+          'version': 1
+        }
+      }, {
+        $skip: Number(limit * (page - 1))
+      },
+      {
+        $limit: Number(limit)
+      }
+    ];
+    let result = await queries.getProductAllbyName(kond);
+    if (result.err) {
+      return wrapper.error('fail', 'Data not found', 409);
+    } else {
+      let data = result.data;
+      data.map(async (item) => {
+        let modelDb = await model.modelProductAll();
+        modelDb.nameProduct = item.name;
+        modelDb.startProject = item.startproject;
+        modelDb.unit = item.unit;
+        modelDb.ver = item.version;
+        arrData.push(modelDb);
+      });
+      return wrapper.data(arrData, '', 200);
+    }
+  }
+
   async getCalenderbydate (time) {
     let arrData = [];
-
     let result = await queries.getCalenderbydate();
     if (result.err) {
       return wrapper.error('fail', 'Data not found', 409);
@@ -111,10 +252,10 @@ class CoreService {
       let data = result.data;
       data.map(async (item) => {
         let modelDb = await model.modelB();
-        modelDb.name = item.name,
-        modelDb.version = item.version
+        modelDb.name = item.name;
+        modelDb.version = item.version;
         arrData.push(modelDb);
-        
+
         let modelCal = await model.modelCalendar();
         let query = item.startTime.split('T', 1);
         if (query == time) {
@@ -162,6 +303,7 @@ class CoreService {
     };
       return wrapper.data(arrData, '', 200);
     }
+    
     async getDetailPersonalBacklog (data) {
       let result = await queries.getDetailPersonalBacklog(data);
       let belum = 0;

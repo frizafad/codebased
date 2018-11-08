@@ -3,7 +3,6 @@
 const Mongo = require('mongodb').MongoClient;
 const wrapper = require('../../utils/wrapper');
 const validate = require('validate.js');
-const Emitter = require('../../events/event_emitter');
 const config = require('../../../infra/configs/global_config');
 
 let connectionPool = [];
@@ -39,7 +38,8 @@ const createConnection = async (config) => {
   try {
     const connection = await Mongo.connect(config, options);
     return wrapper.data(connection);
-  } catch (err)  {
+  } catch (err) {
+    console.log(err);
     return wrapper.error(err, err.message, 503);
   }
 };
@@ -95,5 +95,6 @@ const getConnection = async (config) => {
 
 module.exports = {
   init: init,
-  getConnection: getConnection
+  getConnection: getConnection,
+  createConnection
 };

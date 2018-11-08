@@ -9,6 +9,16 @@ const modelA = () => {
   return model;
 };
 
+const modelProductAll = () => {
+  const model = {
+    nameProduct: '',
+    startProject: '',
+    unit: '',
+    ver: ''
+  };
+  return model;
+};
+
 const modelSquad = () => {
   const model = {
     squadid: '',
@@ -55,8 +65,8 @@ const personalscore = () => {
 
 const modelQueue = () => {
   const model = {
-    name : '',
-    version : ''
+    name: '',
+    version: ''
   };
   return model;
 };
@@ -68,11 +78,54 @@ const modelDetail = () => {
   return model;
 };
 
+const modelgetProduct = () => {
+  const model = {
+    id: '',
+    productName: '',
+    sprint: '',
+    squad: '',
+    member:
+    [
+      {
+        talentId: '',
+        talentName: '',
+        talentRole: ''
+      }
+    ],
+    stakeholder: [
+      {
+        unit: ''
+      }
+    ],
+    note: ''
+  };
+  return model;
+};
+
+const modelgetNotification = () => {
+  const model = {
+    member: [
+      {
+        talentId: '',
+        talentName: '',
+        talentRole: ''
+      }
+    ],
+    description: '',
+    squad: '',
+    backlog: ''
+  };
+  return model;
+};
+
 module.exports = {
+  modelA,
+  modelProductAll,
+  modelgetProduct,
+  modelgetNotification,
   modelQueue,
   modelCalendar,
   modelDetail,
-  modelA,
   modelSquad,
   personalscore
 };

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use strict';
 
 const config = require('../../../../infra/configs/global_config');
@@ -118,10 +119,17 @@ const getTalent = async () => {
   return Arrdata;
 };
 
-const getQueue = async () => {
+const getProductAll = async (data) => {
   const db = new Mongo(config.getDatabaseUrl());
   db.setCollection('products');
-  const recordset = await db.findMany();
+  const recordset = await db.innerJoin(data);
+  return recordset;
+};
+
+const getProductAllbyName = async (data) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('products');
+  const recordset = await db.innerJoin(data);
   return recordset;
 };
 const getCalenderbydate = async () => {
@@ -137,6 +145,68 @@ const getpersonalscore = async (data) => {
   const recordset = await db.findOne(data);
   return recordset;
   };
+  
+const getProduct = async (data) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('products');
+  const recordset = await db.innerJoin(
+    [
+      {
+        $lookup:
+      {
+        from: 'squads',
+        localField: 'squadId',
+        foreignField: 'id',
+        as: 'squad'
+      }},
+      {$unwind: '$squad'}
+    ]
+  );
+  return recordset;
+};
+
+const getSquad = async () => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('squads');
+  const recordset = await db.innerJoin(
+    [
+      {
+        $match: {sprintId: 'SP001'}
+      }, {
+        $lookup:
+      {
+        from: 'sprints',
+        localField: 'sprintId',
+        foreignField: 'id',
+        as: 'sprint'
+      }
+      }, {$unwind: '$sprint'}]);
+  return recordset;
+};
+
+const innerSquad = async (data) => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('squads');
+  const recordset = await db.innerJoin(
+    [{
+      $match: {sprintId: 'SP001'}
+    }, {
+      $lookup:
+        {
+          from: 'sprints',
+          localField: 'sprintId',
+          foreignField: 'id',
+          as: 'sprint'
+        }
+    }, {$unwind: '$sprint'}]);
+  return recordset;
+};
+const getQueue = async () => {
+  const db = new Mongo(config.getDatabaseUrl());
+  db.setCollection('products');
+  const recordset = await db.findMany();
+  return recordset;
+};
 
 const getDetailPersonalBacklog = async (data) => {
   const db = new Mongo(config.getDatabaseUrl());
@@ -177,9 +247,13 @@ const getPersonalBacklog = async (data) => {
   ]);
   return recordset;
 };
-
 module.exports = {
   getMongo,
+  getProductAll,
+  getProductAllbyName,
+  getProduct,
+  innerSquad,
+  getSquad,
   getQueue,
   getCalenderbydate,
   getDetailPersonalBacklog,

@@ -2,6 +2,7 @@
 
 const config = require('../../../../infra/configs/global_config');
 const Mongo = require('../../../../helpers/databases/mongodb/db');
+
 const postCalendar = async (data) => {
   const db = new Mongo(config.getDatabaseUrl());
   db.setCollection('calendar');
@@ -20,5 +21,9 @@ const postCalendar = async (data) => {
   return recordset;
 };
 module.exports = {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ab6140f745a8165b79e57d1cd96a0e0ad4d063a
   postCalendar: postCalendar
 };

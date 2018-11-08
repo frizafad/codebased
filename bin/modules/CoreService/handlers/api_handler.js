@@ -19,20 +19,49 @@ const getMongo = async (req, res, next) => {
   sendResponse(await getData());
 };
 
+const getProductAll = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getProductAll(req.params);
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
+const getProduct = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getProduct();
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
 const getQueue = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getQueue();
   };
-    
-    const sendResponse = async (result) => {
-      if (result.err !== false) {
-        wrapper.response(res, 'success', result);
-      } else {
-        wrapper.response(res, 'error', result);
-      }
-    };
-    sendResponse(await getData());
+
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
   };
+  sendResponse(await getData());
+};
+
 const getSquadstatus = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getSquadstatus();
@@ -93,7 +122,7 @@ const getOneValid = async (req, res, next) => {
     return queryHandler.getOneValid(req.params);
   };
   const sendResponse = async (result) => {
-    if (result.err != false) {
+    if (result.err !== false) {
       wrapper.response(res, 'success', result);
     } else {
       wrapper.response(res, 'error', result);
@@ -124,8 +153,22 @@ const postCalendar = async (req, res, next) => {
     } else {
       wrapper.response(res, 'error', result);
     }
-  }
+  };
   sendResponse(await postData());
+};
+
+const getProductAllbyName = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getProductAllbyName(req.params);
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
 };
 
 const getCalenderbydate = async (req, res, next) => {
@@ -170,6 +213,20 @@ const getDetailPersonalBacklog = async (req, res, next) => {
   sendResponse(await getData());
 };
 
+const getNotification = async (req, res, next) => {
+  const getData = async () => {
+    return queryHandler.getNotification();
+  };
+  const sendResponse = async (result) => {
+    if (result.err !== false) {
+      wrapper.response(res, 'success', result);
+    } else {
+      wrapper.response(res, 'error', result);
+    }
+  };
+  sendResponse(await getData());
+};
+
 const getPersonalBacklog = async (req, res, next) => {
   const getData = async () => {
     return queryHandler.getPersonalBacklog(req.params);
@@ -186,6 +243,10 @@ const getPersonalBacklog = async (req, res, next) => {
 
 module.exports = {
   getMongo,
+  getProductAll,
+  getProductAllbyName,
+  getProduct,
+  getNotification,
   getQueue,
   getSquadstatus,
   getMemberstatus,
