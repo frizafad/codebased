@@ -39,7 +39,30 @@ class DB {
       }
     }
   }
-
+  async aggregate (parameter) {
+    let ctx = 'mongodb-findOne';
+    const config = this.config;
+    const collectionName = this.collectionName;
+    const result = await mongoConnection.getConnection(config);
+    if (result.err) {
+      logger.log(ctx, result.err.message, 'Error mongodb connection');
+      return result;
+    } else {
+      try {
+        const connection = result.data.db;
+        const db = connection.collection(collectionName);
+        const recordset = await db.aggregate(parameter).toArray();
+        if (validate.isEmpty(recordset)) {
+          return wrapper.error(`Data Not Found`, `Please Try Another Input`, 404);
+        } else {
+          return wrapper.data(recordset);
+        }
+      } catch (err) {
+        logger.log(ctx, err.message, 'Error find data in mongodb');
+        return wrapper.error(`Error Find One Mongo ${err.message}`, `${err.message}`, 409);
+      }
+    }
+  }
   async findMany (parameter) {
     let ctx = 'mongodb-findMany';
     const config = this.config;
@@ -219,6 +242,30 @@ class DB {
       } catch (err) {
         logger.log(ctx, err.message, 'Error count data in mongodb');
         return wrapper.error(`Error Mongo`, `${err.message}`, 409);
+      }
+    }
+  }
+  async aggregatePersonalBacklog (match, unwind, parameter) {
+    let ctx = 'mongodb-findMany';
+    const config = this.config;
+    const collectionName = this.collectionName;
+    const result = await mongoConnection.getConnection(config);
+    if (result.err) {
+      logger.log(ctx, result.err.message, 'Error mongodb connection');
+      return result;
+    } else {
+      try {
+        const connection = result.data.db;
+        const db = connection.collection(collectionName);
+        const recordset = await db.aggregate(match, unwind, parameter).toArray();
+        if (validate.isEmpty(recordset)) {
+          return wrapper.error(`Data Not Found`, `Please Try Another Input`, 404);
+        } else {
+          return wrapper.data(recordset);
+        }
+      } catch (err) {
+        logger.log(ctx, err.message, 'Error find data in mongodb');
+        return wrapper.error(`Error Find Many Mongo ${err.message}`, `${err.message}`, 409);
       }
     }
   }
