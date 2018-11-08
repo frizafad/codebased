@@ -20,7 +20,6 @@ let AppServer = function () {
   this.server.use(restify.plugins.bodyParser());
   this.server.use(restify.plugins.authorizationParser());
 
-  // required for CORS configuration
   this.server.use(cors());
   this.server.opts(/.*/, function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -33,14 +32,23 @@ let AppServer = function () {
     return next();
   });
 
-  // required for basic auth
   this.server.use(basicAuth.init());
 
-  // anonymous can access the end point, place code bellow
   this.server.get('/', (req, res, next) => {
     wrapper.response(res, `success`, wrapper.data(`Code BackEnd`), `This service is running properly`);
   });
 
   this.server.get('/api/mongo', basicAuth.isAuthenticated, dashboardPerformance.getMongo);
+  this.server.get('/product/get', basicAuth.isAuthenticated, dashboardPerformance.getQueue);   
+  this.server.get('/api/squad/status/get', basicAuth.isAuthenticated, dashboardPerformance.getSquadstatus);
+  this.server.get('/api/member/status/get/:squadid', basicAuth.isAuthenticated, dashboardPerformance.getMemberstatus);
+  this.server.get('/api/talent/get', basicAuth.isAuthenticated, dashboardPerformance.getTalent);
+  this.server.get('/api/validator/get',basicAuth.isAuthenticated, dashboardPerformance.getValid);
+  this.server.get('/api/validator/get/:nama_project',basicAuth.isAuthenticated, dashboardPerformance.getOneValid);
+  this.server.post('/api/calendar/post', basicAuth.isAuthenticated, dashboardPerformance.postCalendar);
+  this.server.get('/personal/calender/:startTime', basicAuth.isAuthenticated, dashboardPerformance.getCalenderbydate);
+  this.server.get('/personal/detail/:id', basicAuth.isAuthenticated, dashboardPerformance.getDetailPersonalBacklog);
+  this.server.get('/personal/personal-backlog/:id', basicAuth.isAuthenticated, dashboardPerformance.getPersonalBacklog);
+
 };
 module.exports = AppServer;
